@@ -1,0 +1,409 @@
+Delivered-To: turner.ugo@gmail.com
+Received: by 10.12.178.82 with SMTP id k18csp306093qve;
+        Sat, 2 Sep 2017 00:19:51 -0700 (PDT)
+X-Received: by 10.84.209.232 with SMTP id y95mr5442919plh.5.1504336791572;
+        Sat, 02 Sep 2017 00:19:51 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1504336791; cv=none;
+        d=google.com; s=arc-20160816;
+        b=z9cEfVWUO1w/9q4SpKA9amlMNoIVB5cGl54ly0zyIzhZh06HNveST9NCuWiIwHI58Y
+         dtF5swl67KmbnmLixPqeHYIbe5thgrLlIy24DXGBuPdkBcp6eKBgfu6lwNMLGWJaYJNd
+         5bQ9euggA1kmr8necEVps9DZG4sEUcbuLK9hxNjRo/7Is4Q3g1vCPvAwJoYXbQgdNK4S
+         1+Wm3JnomTl0kJCwHULxxbGYsiYkTGhsZaxLQaz+YEmcpxJxVDYUebaNEhSu8oVWgvX4
+         WC4tcrEOu3fmqa09wRmN+auHA03PzaJm37oOElQLjstNNxRlX0AI7s4NyC4W8Pz8tkhp
+         CLjQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature:arc-authentication-results;
+        bh=in659ZJI/kqAjn6rwKzM4cAJayuh71bd1TgBYr4CG+s=;
+        b=s2A5PMnxdcxbfZfAQkJRp1eK5d7C+8TyrBnuFoX5C/UdRc3aHeHYXH0cpS5xS7/D+5
+         1kWeuPl5yBwEmpDxoHMXNpia67ANsDrtVQXZm3LsdxA0DPz+g1cE53Q0gqLVukSBWTG5
+         85orcnBziX6X4pobX9lFD8E2I9seVcm0fp+rnKUPsGJpSipQD5aNxowtdWoa3sgcMOrt
+         O8lJ23hjUhg+k/MBx20pRHLYCk+ezAVBw7nxKdCnfal/PRttIKTbaumT6AtOAXJiUapG
+         BLwHR3YkYytODY+UEU7puM8hsUA5NwkndWv8c47LNbR+wHeozSDMdfVbbZ8DImBAk7Es
+         q0iQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@hellocasa-fr.20150623.gappssmtp.com header.s=20150623 header.b=h+SOAzGS;
+       spf=neutral (google.com: 209.85.220.69 is neither permitted nor denied by domain of ugo@hellocasa.fr) smtp.mailfrom=ugo@hellocasa.fr
+Return-Path: <ugo@hellocasa.fr>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id b3sor1361472pgc.278.2017.09.02.00.19.50
+        for <turner.ugo@gmail.com>
+        (Google Transport Security);
+        Sat, 02 Sep 2017 00:19:51 -0700 (PDT)
+Received-SPF: neutral (google.com: 209.85.220.69 is neither permitted nor denied by domain of ugo@hellocasa.fr) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@hellocasa-fr.20150623.gappssmtp.com header.s=20150623 header.b=h+SOAzGS;
+       spf=neutral (google.com: 209.85.220.69 is neither permitted nor denied by domain of ugo@hellocasa.fr) smtp.mailfrom=ugo@hellocasa.fr
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=hellocasa-fr.20150623.gappssmtp.com; s=20150623;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to;
+        bh=in659ZJI/kqAjn6rwKzM4cAJayuh71bd1TgBYr4CG+s=;
+        b=h+SOAzGS3T4XAEEELFCtZd+wtUorF84Wg3dVwX7AhxA1NhBSqT8/xva143+TwkMEOt
+         xrrhg8EmRSoc1G068StrJkRuT6gPurd+KXsVfkbFHoTw/Yea6hDO/m3+8DAzZwjqwmtT
+         RLhCLya4qb1/DcNar7g8DDF3NVSQWHqiJqM2E9I5HXuD/SorjUUN9oho3IYTnEJ1QQ2v
+         coDKFq+LL10641Xabu21t3HuOudHG82Edw4+QHQ4z5QJwf0kQjn82bjFprUqQa1UE56u
+         k2kMuMBIi/4osuEUSBdDvTGDNhUfYYPcHnE04CnccHvZcwuwqR0zv18zhBmwu0JXKpZ+
+         GGjA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to;
+        bh=in659ZJI/kqAjn6rwKzM4cAJayuh71bd1TgBYr4CG+s=;
+        b=g+dRbf/HGCdddGeK54DX7Hkva0hBSmMF8ZUGf15OP5GEMF84+Fs2yQfJTbx8WufTuA
+         0M1c2kCPnL5o1SX4U6M78qsfLEmoQ04vNhrirRtudYiEMGVeSRzudPiKGRs8i5zm4okX
+         9tKtX+lzgMtHtEL+M48wfyzf+X0WFW7lRl5/MK6a64KoieGFoH5ZKvArb00wj3ZCraf9
+         LgMUL1LpI1Q884GzU/S7fu11sEN323sceF20efw5WOtJ9xUiGinLg5FeN/THhfDjZNUl
+         b5xXigI2g+759vJrRDKLCp2bnfQeg+wlQ9gO7PdY+IWcYGaF9ef/JBIEJjbQCa0+XWx7
+         MW0Q==
+X-Gm-Message-State: AHPjjUjy8Ow+Zxq514LkVEzZVmiR0YpW+zSxewMBOqyiQMC/9P9qVPi7
+	MsWLzCjf1R3RpiMfEm5Gzobc+3GO4mh4
+X-Google-Smtp-Source: ADKCNb7xWdEvWcyh3n3RRf07jvtib7cBxTnWw6V+RNJQmPbrFv6YsK2SWsVsR8TKyBsuXzvokrfCOU4EynPYxU1uiMI=
+X-Received: by 10.99.44.23 with SMTP id s23mr5291548pgs.212.1504336790182;
+ Sat, 02 Sep 2017 00:19:50 -0700 (PDT)
+MIME-Version: 1.0
+References: <001a114197eced89ae055823760f@google.com>
+In-Reply-To: <001a114197eced89ae055823760f@google.com>
+From: Ugo Hellocasa <ugo@hellocasa.fr>
+Date: Sat, 02 Sep 2017 07:19:39 +0000
+Message-ID: <CAGvi97d-Zqd6pcJLajHjqBOFodRkiv4Bms+vbp-k_cN0xXcXiw@mail.gmail.com>
+Subject: =?UTF-8?Q?Fwd=3A_Invitation=3A_R=C3=A9trospective_V2_=2F_3_ans_Hellocasa?=
+	=?UTF-8?Q?_=40_Fri_Sep_22=2C_2017_4pm_=2D_5pm_=28Ugo_Hellocasa=29?=
+To: Ugo Turner <turner.ugo@gmail.com>
+Content-Type: multipart/mixed; boundary="001a1146de0800a2b705582fb49d"
+
+--001a1146de0800a2b705582fb49d
+Content-Type: multipart/alternative; boundary="001a1146de0800a2b405582fb49b"
+
+--001a1146de0800a2b405582fb49b
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+From: Alexis Guichard <alexis.guichard@hellocasa.fr>
+Date: ven. 1 sept. 2017 =C3=A0 18:43
+Subject: Invitation: R=C3=A9trospective V2 / 3 ans Hellocasa @ Fri Sep 22, =
+2017
+4pm - 5pm (Ugo Hellocasa)
+To: <ugo@hellocasa.fr>, Dev Team <dev-team@hellocasa.fr>, <
+cyril.vermande@hellocasa.fr>, <nawelle.alouani@hellocasa.fr>, Benjamin
+Rezzak <benjamin@hellocasa.fr>, <florian.barbato@hellocasa.fr>, <
+julien.turby@hellocasa.fr>, Guillaume Lasset <guillaume@hellocasa.fr>, <
+andrea.fradin@hellocasa.fr>, <stephane.herault@hellocasa.fr>
+
+
+more details =C2=BB
+<https://www.google.com/calendar/event?action=3DVIEW&eid=3DMG83YWw2Zm03Mjlm=
+ZHZjbXNsMmltbXBoMmEgdWdvQGhlbGxvY2FzYS5mcg&tok=3DMjgjYWxleGlzLmd1aWNoYXJkQG=
+hlbGxvY2FzYS5mcmMyMGIwZTk0MjU2ODU0MTY2NzY3ZDNhZTU2OTU4MjQyMjQzYTM1MzY&ctz=
+=3DEurope/Paris&hl=3Den>
+R=C3=A9trospective V2 / 3 ans Hellocasa
+Hey hey hey ! Quoi de bon pour f=C3=AAter mon retour de vacances qu'une bon=
+ne
+r=C3=A9trospective ! Le th=C3=A8me : la montgolfi=C3=A8re ! M=C3=AAme princ=
+ipe que le speed
+boat, il faut analyser ce qui nous a fait avancer vers la r=C3=A9novation d=
+e
+salle de bain / v2 ce qui nous a ralenti, ou faillit couler !
+
+Commencez =C3=A0 r=C3=A9fl=C3=A9chir !
+*When*
+Fri Sep 22, 2017 4pm =E2=80=93 5pm Paris
+
+*Where*
+(Hellocasa) Grande salle (10/TV) (map
+<https://maps.google.com/maps?q=3D%28Hellocasa%29+Grande+salle+%2810/TV%29&=
+hl=3Den>
+)
+
+*Video call*
+https://plus.google.com/hangouts/_/recowin.com/r-trospective
+<https://plus.google.com/hangouts/_/recowin.com/r-trospective?hceid=3DYWxle=
+GlzLmd1aWNoYXJkQGhlbGxvY2FzYS5mcg.0o7al6fm729fdvcmsl2immph2a>
+
+*Calendar*
+Ugo Hellocasa
+
+*Who*
+=E2=80=A2
+alexis.guichard@hellocasa.fr - organizer
+=E2=80=A2
+Dev Team
+=E2=80=A2
+cyril.vermande@hellocasa.fr
+=E2=80=A2
+nawelle.alouani@hellocasa.fr
+=E2=80=A2
+Benjamin Rezzak
+=E2=80=A2
+florian.barbato@hellocasa.fr
+=E2=80=A2
+julien.turby@hellocasa.fr
+=E2=80=A2
+Guillaume Lasset
+=E2=80=A2
+andrea.fradin@hellocasa.fr
+=E2=80=A2
+stephane.herault@hellocasa.fr
+=E2=80=A2
+Ugo Hellocasa
+
+Going?   *Yes
+<https://www.google.com/calendar/event?action=3DRESPOND&eid=3DMG83YWw2Zm03M=
+jlmZHZjbXNsMmltbXBoMmEgdWdvQGhlbGxvY2FzYS5mcg&rst=3D1&tok=3DMjgjYWxleGlzLmd=
+1aWNoYXJkQGhlbGxvY2FzYS5mcmMyMGIwZTk0MjU2ODU0MTY2NzY3ZDNhZTU2OTU4MjQyMjQzYT=
+M1MzY&ctz=3DEurope/Paris&hl=3Den>
+- Maybe
+<https://www.google.com/calendar/event?action=3DRESPOND&eid=3DMG83YWw2Zm03M=
+jlmZHZjbXNsMmltbXBoMmEgdWdvQGhlbGxvY2FzYS5mcg&rst=3D3&tok=3DMjgjYWxleGlzLmd=
+1aWNoYXJkQGhlbGxvY2FzYS5mcmMyMGIwZTk0MjU2ODU0MTY2NzY3ZDNhZTU2OTU4MjQyMjQzYT=
+M1MzY&ctz=3DEurope/Paris&hl=3Den>
+- No
+<https://www.google.com/calendar/event?action=3DRESPOND&eid=3DMG83YWw2Zm03M=
+jlmZHZjbXNsMmltbXBoMmEgdWdvQGhlbGxvY2FzYS5mcg&rst=3D2&tok=3DMjgjYWxleGlzLmd=
+1aWNoYXJkQGhlbGxvY2FzYS5mcmMyMGIwZTk0MjU2ODU0MTY2NzY3ZDNhZTU2OTU4MjQyMjQzYT=
+M1MzY&ctz=3DEurope/Paris&hl=3Den>*
+    more options =C2=BB
+<https://www.google.com/calendar/event?action=3DVIEW&eid=3DMG83YWw2Zm03Mjlm=
+ZHZjbXNsMmltbXBoMmEgdWdvQGhlbGxvY2FzYS5mcg&tok=3DMjgjYWxleGlzLmd1aWNoYXJkQG=
+hlbGxvY2FzYS5mcmMyMGIwZTk0MjU2ODU0MTY2NzY3ZDNhZTU2OTU4MjQyMjQzYTM1MzY&ctz=
+=3DEurope/Paris&hl=3Den>
+
+Invitation from Google Calendar <https://www.google.com/calendar/>
+
+You are receiving this email at the account ugo@hellocasa.fr because you
+are subscribed for invitations on calendar Ugo Hellocasa.
+
+To stop receiving these emails, please log in to
+https://www.google.com/calendar/ and change your notification settings for
+this calendar.
+
+Forwarding this invitation could allow any recipient to modify your RSVP
+response. Learn More
+<https://support.google.com/calendar/answer/37135#forwarding>.
+
+--001a1146de0800a2b405582fb49b
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><br><div class=3D"gmail_quote"><div dir=3D"ltr">------=
+---- Forwarded message ---------<br>From: Alexis Guichard &lt;<a href=3D"ma=
+ilto:alexis.guichard@hellocasa.fr">alexis.guichard@hellocasa.fr</a>&gt;<br>=
+Date: ven. 1 sept. 2017 =C3=A0=C2=A018:43<br>Subject: Invitation: R=C3=A9tr=
+ospective V2 / 3 ans Hellocasa @ Fri Sep 22, 2017 4pm - 5pm (Ugo Hellocasa)=
+<br>To:  &lt;<a href=3D"mailto:ugo@hellocasa.fr">ugo@hellocasa.fr</a>&gt;, =
+Dev Team &lt;<a href=3D"mailto:dev-team@hellocasa.fr">dev-team@hellocasa.fr=
+</a>&gt;,  &lt;<a href=3D"mailto:cyril.vermande@hellocasa.fr">cyril.vermand=
+e@hellocasa.fr</a>&gt;,  &lt;<a href=3D"mailto:nawelle.alouani@hellocasa.fr=
+">nawelle.alouani@hellocasa.fr</a>&gt;, Benjamin Rezzak &lt;<a href=3D"mail=
+to:benjamin@hellocasa.fr">benjamin@hellocasa.fr</a>&gt;,  &lt;<a href=3D"ma=
+ilto:florian.barbato@hellocasa.fr">florian.barbato@hellocasa.fr</a>&gt;,  &=
+lt;<a href=3D"mailto:julien.turby@hellocasa.fr">julien.turby@hellocasa.fr</=
+a>&gt;, Guillaume Lasset &lt;<a href=3D"mailto:guillaume@hellocasa.fr">guil=
+laume@hellocasa.fr</a>&gt;,  &lt;<a href=3D"mailto:andrea.fradin@hellocasa.=
+fr">andrea.fradin@hellocasa.fr</a>&gt;,  &lt;<a href=3D"mailto:stephane.her=
+ault@hellocasa.fr">stephane.herault@hellocasa.fr</a>&gt;<br></div><br><br><=
+span><span style=3D"display:none"></span><span><div><table cellspacing=3D"0=
+" cellpadding=3D"8" border=3D"0" summary=3D"" style=3D"width:100%;font-fami=
+ly:Arial,Sans-serif;border:1px Solid #ccc;border-width:1px 2px 2px 1px;back=
+ground-color:#fff"><tbody><tr><td><div style=3D"padding:2px"><span></span><=
+div style=3D"float:right;font-weight:bold;font-size:13px"> <a href=3D"https=
+://www.google.com/calendar/event?action=3DVIEW&amp;eid=3DMG83YWw2Zm03MjlmZH=
+ZjbXNsMmltbXBoMmEgdWdvQGhlbGxvY2FzYS5mcg&amp;tok=3DMjgjYWxleGlzLmd1aWNoYXJk=
+QGhlbGxvY2FzYS5mcmMyMGIwZTk0MjU2ODU0MTY2NzY3ZDNhZTU2OTU4MjQyMjQzYTM1MzY&amp=
+;ctz=3DEurope/Paris&amp;hl=3Den" style=3D"color:#20c;white-space:nowrap" ta=
+rget=3D"_blank">more details =C2=BB</a><br></div><h3 style=3D"padding:0 0 6=
+px 0;margin:0;font-family:Arial,Sans-serif;font-size:16px;font-weight:bold;=
+color:#222"><span>R=C3=A9trospective V2 / 3 ans Hellocasa</span></h3><div s=
+tyle=3D"padding-bottom:15px;font-family:Arial,Sans-serif;font-size:13px;col=
+or:#222;white-space:pre-wrap!important;white-space:-moz-pre-wrap!important;=
+white-space:-pre-wrap!important;white-space:-o-pre-wrap!important;white-spa=
+ce:pre-wrap;word-wrap:break-word"><span>Hey hey hey ! Quoi de bon pour f=C3=
+=AAter mon retour de vacances qu&#39;une bonne r=C3=A9trospective ! Le th=
+=C3=A8me : la montgolfi=C3=A8re ! M=C3=AAme principe que le speed boat, il =
+faut analyser ce qui nous a fait avancer vers la r=C3=A9novation de salle d=
+e bain / v2 ce qui nous a ralenti, ou faillit couler ! <p>Commencez =C3=A0 =
+r=C3=A9fl=C3=A9chir ! <br></p></span></div><table cellpadding=3D"0" cellspa=
+cing=3D"0" border=3D"0" summary=3D"Event details"><tbody><tr><td style=3D"p=
+adding:0 1em 10px 0;font-family:Arial,Sans-serif;font-size:13px;color:#888;=
+white-space:nowrap" valign=3D"top"><div><i style=3D"font-style:normal">When=
+</i></div></td><td style=3D"padding-bottom:10px;font-family:Arial,Sans-seri=
+f;font-size:13px;color:#222" valign=3D"top"><u></u><u></u><u></u><u></u>Fri=
+ Sep 22, 2017 4pm =E2=80=93 5pm <span style=3D"color:#888">Paris</span></td=
+></tr><tr><td style=3D"padding:0 1em 10px 0;font-family:Arial,Sans-serif;fo=
+nt-size:13px;color:#888;white-space:nowrap" valign=3D"top"><div><i style=3D=
+"font-style:normal">Where</i></div></td><td style=3D"padding-bottom:10px;fo=
+nt-family:Arial,Sans-serif;font-size:13px;color:#222" valign=3D"top"><span>=
+<span class=3D"notranslate">(Hellocasa) Grande salle (10/TV)</span><span di=
+r=3D"ltr"> (<a href=3D"https://maps.google.com/maps?q=3D%28Hellocasa%29+Gra=
+nde+salle+%2810/TV%29&amp;hl=3Den" style=3D"color:#20c;white-space:nowrap" =
+target=3D"_blank">map</a>)</span></span></td></tr><tr><td style=3D"padding:=
+0 1em 10px 0;font-family:Arial,Sans-serif;font-size:13px;color:#888;white-s=
+pace:nowrap" valign=3D"top"><div><i style=3D"font-style:normal">Video call<=
+/i></div></td><td style=3D"padding-bottom:10px;font-family:Arial,Sans-serif=
+;font-size:13px;color:#222" valign=3D"top"><span><span content=3D"https://p=
+lus.google.com/hangouts/_/recowin.com/r-trospective"><span><span content=3D=
+"https://plus.google.com/hangouts/_/recowin.com/r-trospective?hceid=3DYWxle=
+GlzLmd1aWNoYXJkQGhlbGxvY2FzYS5mcg.0o7al6fm729fdvcmsl2immph2a"><span content=
+=3D"GET"><a href=3D"https://plus.google.com/hangouts/_/recowin.com/r-trospe=
+ctive?hceid=3DYWxleGlzLmd1aWNoYXJkQGhlbGxvY2FzYS5mcg.0o7al6fm729fdvcmsl2imm=
+ph2a" style=3D"color:#20c;white-space:nowrap" target=3D"_blank">https://plu=
+s.google.com/hangouts/_/recowin.com/r-trospective</a></span></span></span><=
+/span></span></td></tr><tr><td style=3D"padding:0 1em 10px 0;font-family:Ar=
+ial,Sans-serif;font-size:13px;color:#888;white-space:nowrap" valign=3D"top"=
+><div><i style=3D"font-style:normal">Calendar</i></div></td><td style=3D"pa=
+dding-bottom:10px;font-family:Arial,Sans-serif;font-size:13px;color:#222" v=
+align=3D"top">Ugo Hellocasa</td></tr><tr><td style=3D"padding:0 1em 10px 0;=
+font-family:Arial,Sans-serif;font-size:13px;color:#888;white-space:nowrap" =
+valign=3D"top"><div><i style=3D"font-style:normal">Who</i></div></td><td st=
+yle=3D"padding-bottom:10px;font-family:Arial,Sans-serif;font-size:13px;colo=
+r:#222" valign=3D"top"><table cellspacing=3D"0" cellpadding=3D"0"><tbody><t=
+r><td style=3D"padding-right:10px;font-family:Arial,Sans-serif;font-size:13=
+px;color:#222"><span style=3D"font-family:Courier New,monospace">=E2=80=A2<=
+/span></td><td style=3D"padding-right:10px;font-family:Arial,Sans-serif;fon=
+t-size:13px;color:#222"><div><div style=3D"margin:0 0 0.3em 0"><span><span =
+class=3D"notranslate"><a href=3D"mailto:alexis.guichard@hellocasa.fr" targe=
+t=3D"_blank">alexis.guichard@hellocasa.fr</a></span></span><span></span><sp=
+an style=3D"font-size:11px;color:#888"> - organizer</span></div></div></td>=
+</tr><tr><td style=3D"padding-right:10px;font-family:Arial,Sans-serif;font-=
+size:13px;color:#222"><span style=3D"font-family:Courier New,monospace">=E2=
+=80=A2</span></td><td style=3D"padding-right:10px;font-family:Arial,Sans-se=
+rif;font-size:13px;color:#222"><div><div style=3D"margin:0 0 0.3em 0"><span=
+><span class=3D"notranslate">Dev Team</span></span></div></div></td></tr><t=
+r><td style=3D"padding-right:10px;font-family:Arial,Sans-serif;font-size:13=
+px;color:#222"><span style=3D"font-family:Courier New,monospace">=E2=80=A2<=
+/span></td><td style=3D"padding-right:10px;font-family:Arial,Sans-serif;fon=
+t-size:13px;color:#222"><div><div style=3D"margin:0 0 0.3em 0"><span><span =
+class=3D"notranslate"><a href=3D"mailto:cyril.vermande@hellocasa.fr" target=
+=3D"_blank">cyril.vermande@hellocasa.fr</a></span></span></div></div></td><=
+/tr><tr><td style=3D"padding-right:10px;font-family:Arial,Sans-serif;font-s=
+ize:13px;color:#222"><span style=3D"font-family:Courier New,monospace">=E2=
+=80=A2</span></td><td style=3D"padding-right:10px;font-family:Arial,Sans-se=
+rif;font-size:13px;color:#222"><div><div style=3D"margin:0 0 0.3em 0"><span=
+><span class=3D"notranslate"><a href=3D"mailto:nawelle.alouani@hellocasa.fr=
+" target=3D"_blank">nawelle.alouani@hellocasa.fr</a></span></span></div></d=
+iv></td></tr><tr><td style=3D"padding-right:10px;font-family:Arial,Sans-ser=
+if;font-size:13px;color:#222"><span style=3D"font-family:Courier New,monosp=
+ace">=E2=80=A2</span></td><td style=3D"padding-right:10px;font-family:Arial=
+,Sans-serif;font-size:13px;color:#222"><div><div style=3D"margin:0 0 0.3em =
+0"><span><span class=3D"notranslate">Benjamin Rezzak</span></span></div></d=
+iv></td></tr><tr><td style=3D"padding-right:10px;font-family:Arial,Sans-ser=
+if;font-size:13px;color:#222"><span style=3D"font-family:Courier New,monosp=
+ace">=E2=80=A2</span></td><td style=3D"padding-right:10px;font-family:Arial=
+,Sans-serif;font-size:13px;color:#222"><div><div style=3D"margin:0 0 0.3em =
+0"><span><span class=3D"notranslate"><a href=3D"mailto:florian.barbato@hell=
+ocasa.fr" target=3D"_blank">florian.barbato@hellocasa.fr</a></span></span><=
+/div></div></td></tr><tr><td style=3D"padding-right:10px;font-family:Arial,=
+Sans-serif;font-size:13px;color:#222"><span style=3D"font-family:Courier Ne=
+w,monospace">=E2=80=A2</span></td><td style=3D"padding-right:10px;font-fami=
+ly:Arial,Sans-serif;font-size:13px;color:#222"><div><div style=3D"margin:0 =
+0 0.3em 0"><span><span class=3D"notranslate"><a href=3D"mailto:julien.turby=
+@hellocasa.fr" target=3D"_blank">julien.turby@hellocasa.fr</a></span></span=
+></div></div></td></tr><tr><td style=3D"padding-right:10px;font-family:Aria=
+l,Sans-serif;font-size:13px;color:#222"><span style=3D"font-family:Courier =
+New,monospace">=E2=80=A2</span></td><td style=3D"padding-right:10px;font-fa=
+mily:Arial,Sans-serif;font-size:13px;color:#222"><div><div style=3D"margin:=
+0 0 0.3em 0"><span><span class=3D"notranslate">Guillaume Lasset</span></spa=
+n></div></div></td></tr><tr><td style=3D"padding-right:10px;font-family:Ari=
+al,Sans-serif;font-size:13px;color:#222"><span style=3D"font-family:Courier=
+ New,monospace">=E2=80=A2</span></td><td style=3D"padding-right:10px;font-f=
+amily:Arial,Sans-serif;font-size:13px;color:#222"><div><div style=3D"margin=
+:0 0 0.3em 0"><span><span class=3D"notranslate"><a href=3D"mailto:andrea.fr=
+adin@hellocasa.fr" target=3D"_blank">andrea.fradin@hellocasa.fr</a></span><=
+/span></div></div></td></tr><tr><td style=3D"padding-right:10px;font-family=
+:Arial,Sans-serif;font-size:13px;color:#222"><span style=3D"font-family:Cou=
+rier New,monospace">=E2=80=A2</span></td><td style=3D"padding-right:10px;fo=
+nt-family:Arial,Sans-serif;font-size:13px;color:#222"><div><div style=3D"ma=
+rgin:0 0 0.3em 0"><span><span class=3D"notranslate"><a href=3D"mailto:steph=
+ane.herault@hellocasa.fr" target=3D"_blank">stephane.herault@hellocasa.fr</=
+a></span></span></div></div></td></tr><tr><td style=3D"padding-right:10px;f=
+ont-family:Arial,Sans-serif;font-size:13px;color:#222"><span style=3D"font-=
+family:Courier New,monospace">=E2=80=A2</span></td><td style=3D"padding-rig=
+ht:10px;font-family:Arial,Sans-serif;font-size:13px;color:#222"><div><div s=
+tyle=3D"margin:0 0 0.3em 0"><span><span class=3D"notranslate">Ugo Hellocasa=
+</span></span></div></div></td></tr></tbody></table></td></tr></tbody></tab=
+le></div><p style=3D"color:#222;font-size:13px;margin:0"><span style=3D"col=
+or:#888">Going?=C2=A0=C2=A0=C2=A0</span><strong><span><span><a href=3D"http=
+s://www.google.com/calendar/event?action=3DRESPOND&amp;eid=3DMG83YWw2Zm03Mj=
+lmZHZjbXNsMmltbXBoMmEgdWdvQGhlbGxvY2FzYS5mcg&amp;rst=3D1&amp;tok=3DMjgjYWxl=
+eGlzLmd1aWNoYXJkQGhlbGxvY2FzYS5mcmMyMGIwZTk0MjU2ODU0MTY2NzY3ZDNhZTU2OTU4MjQ=
+yMjQzYTM1MzY&amp;ctz=3DEurope/Paris&amp;hl=3Den" style=3D"color:#20c;white-=
+space:nowrap" target=3D"_blank">Yes</a></span></span><span style=3D"margin:=
+0 0.4em;font-weight:normal"> - </span><span><span><a href=3D"https://www.go=
+ogle.com/calendar/event?action=3DRESPOND&amp;eid=3DMG83YWw2Zm03MjlmZHZjbXNs=
+MmltbXBoMmEgdWdvQGhlbGxvY2FzYS5mcg&amp;rst=3D3&amp;tok=3DMjgjYWxleGlzLmd1aW=
+NoYXJkQGhlbGxvY2FzYS5mcmMyMGIwZTk0MjU2ODU0MTY2NzY3ZDNhZTU2OTU4MjQyMjQzYTM1M=
+zY&amp;ctz=3DEurope/Paris&amp;hl=3Den" style=3D"color:#20c;white-space:nowr=
+ap" target=3D"_blank">Maybe</a></span></span><span style=3D"margin:0 0.4em;=
+font-weight:normal"> - </span><span><span><a href=3D"https://www.google.com=
+/calendar/event?action=3DRESPOND&amp;eid=3DMG83YWw2Zm03MjlmZHZjbXNsMmltbXBo=
+MmEgdWdvQGhlbGxvY2FzYS5mcg&amp;rst=3D2&amp;tok=3DMjgjYWxleGlzLmd1aWNoYXJkQG=
+hlbGxvY2FzYS5mcmMyMGIwZTk0MjU2ODU0MTY2NzY3ZDNhZTU2OTU4MjQyMjQzYTM1MzY&amp;c=
+tz=3DEurope/Paris&amp;hl=3Den" style=3D"color:#20c;white-space:nowrap" targ=
+et=3D"_blank">No</a></span></span></strong>=C2=A0=C2=A0=C2=A0=C2=A0<a href=
+=3D"https://www.google.com/calendar/event?action=3DVIEW&amp;eid=3DMG83YWw2Z=
+m03MjlmZHZjbXNsMmltbXBoMmEgdWdvQGhlbGxvY2FzYS5mcg&amp;tok=3DMjgjYWxleGlzLmd=
+1aWNoYXJkQGhlbGxvY2FzYS5mcmMyMGIwZTk0MjU2ODU0MTY2NzY3ZDNhZTU2OTU4MjQyMjQzYT=
+M1MzY&amp;ctz=3DEurope/Paris&amp;hl=3Den" style=3D"color:#20c;white-space:n=
+owrap" target=3D"_blank">more options =C2=BB</a></p></td></tr><tr><td style=
+=3D"background-color:#f6f6f6;color:#888;border-top:1px Solid #ccc;font-fami=
+ly:Arial,Sans-serif;font-size:11px"><p>Invitation from <a href=3D"https://w=
+ww.google.com/calendar/" target=3D"_blank">Google Calendar</a></p><p>You ar=
+e receiving this email at the account <a href=3D"mailto:ugo@hellocasa.fr" t=
+arget=3D"_blank">ugo@hellocasa.fr</a> because you are subscribed for invita=
+tions on calendar Ugo Hellocasa.</p><p>To stop receiving these emails, plea=
+se log in to <a href=3D"https://www.google.com/calendar/" target=3D"_blank"=
+>https://www.google.com/calendar/</a> and change your notification settings=
+ for this calendar.</p><p>Forwarding this invitation could allow any recipi=
+ent to modify your RSVP response. <a href=3D"https://support.google.com/cal=
+endar/answer/37135#forwarding" target=3D"_blank">Learn More</a>.</p></td></=
+tr></tbody></table></div></span></span></div></div>
+
+--001a1146de0800a2b405582fb49b--
+--001a1146de0800a2b705582fb49d
+Content-Type: application/ics; name="invite.ics"
+Content-Disposition: attachment; filename="invite.ics"
+Content-Transfer-Encoding: base64
+Content-ID: <15e4176ac09475802341>
+X-Attachment-Id: 15e4176ac09475802341
+
+QkVHSU46VkNBTEVOREFSDQpQUk9ESUQ6LS8vR29vZ2xlIEluYy8vR29vZ2xlIENhbGVuZGFyIDcw
+LjkwNTQvL0VODQpWRVJTSU9OOjIuMA0KQ0FMU0NBTEU6R1JFR09SSUFODQpNRVRIT0Q6UkVRVUVT
+VA0KQkVHSU46VkVWRU5UDQpEVFNUQVJUOjIwMTcwOTIyVDE0MDAwMFoNCkRURU5EOjIwMTcwOTIy
+VDE1MDAwMFoNCkRUU1RBTVA6MjAxNzA5MDFUMTY0MzQ1Wg0KT1JHQU5JWkVSO0NOPWFsZXhpcy5n
+dWljaGFyZEBoZWxsb2Nhc2EuZnI6bWFpbHRvOmFsZXhpcy5ndWljaGFyZEBoZWxsb2Nhc2EuDQog
+ZnINClVJRDowbzdhbDZmbTcyOWZkdmNtc2wyaW1tcGgyYUBnb29nbGUuY29tDQpBVFRFTkRFRTtD
+VVRZUEU9SU5ESVZJRFVBTDtST0xFPVJFUS1QQVJUSUNJUEFOVDtQQVJUU1RBVD1ORUVEUy1BQ1RJ
+T047UlNWUD0NCiBUUlVFO0NOPURldiBUZWFtO1gtTlVNLUdVRVNUUz0wOm1haWx0bzpkZXYtdGVh
+bUBoZWxsb2Nhc2EuZnINCkFUVEVOREVFO0NVVFlQRT1JTkRJVklEVUFMO1JPTEU9UkVRLVBBUlRJ
+Q0lQQU5UO1BBUlRTVEFUPU5FRURTLUFDVElPTjtSU1ZQPQ0KIFRSVUU7Q049KEhlbGxvY2FzYSkg
+R3JhbmRlIHNhbGxlICgxMC9UVik7WC1OVU0tR1VFU1RTPTA6bWFpbHRvOnJlY293aW4uY29tXw0K
+IDM2MzgzNjM0MzEzNTM0MzczOTM4MzdAcmVzb3VyY2UuY2FsZW5kYXIuZ29vZ2xlLmNvbQ0KQVRU
+RU5ERUU7Q1VUWVBFPUlORElWSURVQUw7Uk9MRT1SRVEtUEFSVElDSVBBTlQ7UEFSVFNUQVQ9QUND
+RVBURUQ7UlNWUD1UUlVFDQogO0NOPWFsZXhpcy5ndWljaGFyZEBoZWxsb2Nhc2EuZnI7WC1OVU0t
+R1VFU1RTPTA6bWFpbHRvOmFsZXhpcy5ndWljaGFyZEBoZWxsDQogb2Nhc2EuZnINCkFUVEVOREVF
+O0NVVFlQRT1JTkRJVklEVUFMO1JPTEU9UkVRLVBBUlRJQ0lQQU5UO1BBUlRTVEFUPU5FRURTLUFD
+VElPTjtSU1ZQPQ0KIFRSVUU7Q049VWdvIEhlbGxvY2FzYTtYLU5VTS1HVUVTVFM9MDptYWlsdG86
+dWdvQGhlbGxvY2FzYS5mcg0KQ1JFQVRFRDoyMDE3MDkwMVQxNjQzNDRaDQpERVNDUklQVElPTjpI
+ZXkgaGV5IGhleSAhIFF1b2kgZGUgYm9uIHBvdXIgZsOqdGVyIG1vbiByZXRvdXIgZGUgdmFjYW5j
+ZXMgcXUnDQogdW5lIGJvbm5lIHLDqXRyb3NwZWN0aXZlICEgTGUgdGjDqG1lIDogbGEgbW9udGdv
+bGZpw6hyZSAhIE3Dqm1lIHByaW5jaXBlIHF1ZSBsZQ0KICBzcGVlZCBib2F0XCwgaWwgZmF1dCBh
+bmFseXNlciBjZSBxdWkgbm91cyBhIGZhaXQgYXZhbmNlciB2ZXJzIGxhIHLDqW5vdmF0aW8NCiBu
+IGRlIHNhbGxlIGRlIGJhaW4gLyB2MiBjZSBxdWkgbm91cyBhIHJhbGVudGlcLCBvdSBmYWlsbGl0
+IGNvdWxlciAhIFxuXG5Db20NCiBtZW5jZXogw6AgcsOpZmzDqWNoaXIgISBcblxuXG4tOjp+On46
+On46fjp+On46fjp+On46fjp+On46fjp+On46fjp+On46fjp+On46fjoNCiB+On46fjp+On46fjp+
+On46fjp+On46fjp+On46fjp+Ojp+On46Oi1cblBsZWFzZSBkbyBub3QgZWRpdCB0aGlzIHNlY3Rp
+b24gb2YNCiAgdGhlIGRlc2NyaXB0aW9uLlxuXG5UaGlzIGV2ZW50IGhhcyBhIEdvb2dsZSBIYW5n
+b3V0cyB2aWRlbyBjYWxsLlxuSm9pbjogaHQNCiB0cHM6Ly9wbHVzLmdvb2dsZS5jb20vaGFuZ291
+dHMvXy9yZWNvd2luLmNvbS9yLXRyb3NwZWN0aXZlP2hjZWlkPVlXeGxlR2x6TG0NCiBkMWFXTm9Z
+WEprUUdobGJHeHZZMkZ6WVM1bWNnLjBvN2FsNmZtNzI5ZmR2Y21zbDJpbW1waDJhJmhzPTEyMVxu
+XG5WaWV3IHlvdXINCiAgZXZlbnQgYXQgaHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS9jYWxlbmRhci9l
+dmVudD9hY3Rpb249VklFVyZlaWQ9TUc4M1lXdzJabTANCiAzTWpsbVpIWmpiWE5zTW1sdGJYQm9N
+bUVnZFdkdlFHaGxiR3h2WTJGellTNW1jZyZ0b2s9TWpnallXeGxlR2x6TG1kMWFXTm9ZWEoNCiBr
+UUdobGJHeHZZMkZ6WVM1bWNtTXlNR0l3WlRrME1qVTJPRFUwTVRZMk56WTNaRE5oWlRVMk9UVTRN
+alF5TWpRellUTTFNelkmY3QNCiB6PUV1cm9wZS9QYXJpcyZobD1lbi5cbi06On46fjo6fjp+On46
+fjp+On46fjp+On46fjp+On46fjp+On46fjp+On46fjp+On46fjoNCiB+On46fjp+On46fjp+On46
+fjp+On46fjp+On46On46fjo6LQ0KTEFTVC1NT0RJRklFRDoyMDE3MDkwMVQxNjQzNDVaDQpMT0NB
+VElPTjooSGVsbG9jYXNhKSBHcmFuZGUgc2FsbGUgKDEwL1RWKQ0KU0VRVUVOQ0U6MA0KU1RBVFVT
+OkNPTkZJUk1FRA0KU1VNTUFSWTpSw6l0cm9zcGVjdGl2ZSBWMiAvIDMgYW5zIEhlbGxvY2FzYQ0K
+VFJBTlNQOk9QQVFVRQ0KRU5EOlZFVkVOVA0KRU5EOlZDQUxFTkRBUg0K
+--001a1146de0800a2b705582fb49d--

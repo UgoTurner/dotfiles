@@ -1,0 +1,766 @@
+Delivered-To: turner.ugo@gmail.com
+Received: by 10.12.178.82 with SMTP id k18csp8004608qve;
+        Wed, 30 Aug 2017 22:00:49 -0700 (PDT)
+X-Received: by 10.80.177.143 with SMTP id m15mr485859edd.101.1504155648902;
+        Wed, 30 Aug 2017 22:00:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1504155648; cv=none;
+        d=google.com; s=arc-20160816;
+        b=jmJn8B3+wkTC5lfy9UkNXvhyYebaZYFsy6CfUQONAgBj/9MRszxqMJKmKTZieQ9INC
+         e2Pmg6ziebw3/dG5mBtml/5z+GV4a7yz7icN8lPUZfvbP+bPf2u6M2zE4f5DQMgJAr7+
+         eTDijzKX71/1m2SXCwu8M0gRLMrV+tFlBK/DMwA+AtIs6Ru16Tuh+Dz5XSBN3yjQeiRV
+         vPhk/d79oCMmLHcMdYVab+d0wikOFjRDPqkN3AleDwV2LdbCD+cI8ZyYch1z0Kyt2wZM
+         zBOeNVAB5zULCfq2KHxOpo86/GbscgsJtwUN/LCvxC00nkZgkDUaklFKzTUniXt8s8Tk
+         eIXA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=subject:to:mime-version:from:date:message-id:dkim-signature
+         :arc-authentication-results;
+        bh=uUR5ElF/lr0EZsZJvMFsaXkXgf7BqAHvQa7kvV8pXQY=;
+        b=qzkuE9t/0B8auNnpIaD6Z2lAHw/Rp4Vh1WWw1D1MMYjplbXQjRKoB4M/LFW1dXJlNl
+         7KOcvqB6pV9o5j62chK592eYtrCS1PjUfaoyJSqhOlfWixaEXEZzDBcmbc2D1tR7GLhs
+         61+macSDGfqdOnlBDDM3G3Ydj9DGYvjItErsTW16lypUYbkYW//34tZHY4UnGUrR3pLh
+         o7mLRafKav1CxxXXFCRHoqfD5EAUR1DUyvWHmQ8EUMlWG8B8p0o3Y6jyRGdp5DuaqP6d
+         oF+Bhy8nAOYgiX6zhObD+XNdZcOuBhlg3azY4yGq7/pP/RGaka/1Si3bskc7d/74kJRG
+         ZeAg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=MvknXJnz;
+       spf=pass (google.com: domain of london.jack1000@gmail.com designates 2a00:1450:400c:c0c::232 as permitted sender) smtp.mailfrom=london.jack1000@gmail.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=gmail.com
+Return-Path: <london.jack1000@gmail.com>
+Received: from mail-wr0-x232.google.com (mail-wr0-x232.google.com. [2a00:1450:400c:c0c::232])
+        by mx.google.com with ESMTPS id b1si4249725edh.425.2017.08.30.22.00.48
+        for <turner.ugo@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 30 Aug 2017 22:00:48 -0700 (PDT)
+Received-SPF: pass (google.com: domain of london.jack1000@gmail.com designates 2a00:1450:400c:c0c::232 as permitted sender) client-ip=2a00:1450:400c:c0c::232;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=MvknXJnz;
+       spf=pass (google.com: domain of london.jack1000@gmail.com designates 2a00:1450:400c:c0c::232 as permitted sender) smtp.mailfrom=london.jack1000@gmail.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=gmail.com
+Received: by mail-wr0-x232.google.com with SMTP id z91so17229399wrc.1
+        for <turner.ugo@gmail.com>; Wed, 30 Aug 2017 22:00:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=message-id:date:from:mime-version:to:subject;
+        bh=uUR5ElF/lr0EZsZJvMFsaXkXgf7BqAHvQa7kvV8pXQY=;
+        b=MvknXJnzxMGfuvOZ7QuRn3clhrTbzRAr6NJ+o0+RH+LOKRuAvGMxlOAjvYDOmXkUKt
+         cDGWRHeM74oYZghcy0rC18jL5kbm05C6IofszNU7iOgFMee4S/0kHlXJwzMFKduM5H4U
+         2uDgIEVPIS54LGbyBPQsuiVu6tzG3GMbFyoS4rT4k/f0IF77olGFD6FDcKsf1sPcl45x
+         OkSkyvIxjEwIZ+tzmt+O7pCZFnjR10LOMsXaf/9T4eYFHvMm/Ca943d3x/K8lfMMJqjY
+         gyDsd0vSGicy1yF7MA2vO5kxt+tvSamC/wT+FZdkAgPxa96t0Qmc4h2Xjf6Mfu77WJoz
+         WpBw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:message-id:date:from:mime-version:to:subject;
+        bh=uUR5ElF/lr0EZsZJvMFsaXkXgf7BqAHvQa7kvV8pXQY=;
+        b=CeekNB2LSh6P9miIiJDcS43bk0ezMokNYlbC1xkf/GtjEcTOW0lVO5t10/tUnzhPh9
+         +OPnQe+jzR2QwQ/pu4EP068phvzNbwl9W/KhIRzErOSzEhsX1sk0gfJviuTfkDA2EuRZ
+         RW/W1GEjlx4gYNrxmKDZOII7pkCzEAEI25kiC191rGt8D+fCMdR/A3lCpqMNxinFFbPe
+         zp4NPMxsZZzVQ6yy4OiU0xt+jgqkyxs2MlIrSP2H1yYxYFZOv839Wb5Ve3yA/ESCh6fd
+         Mk6dTwf+nwPkdTbOatuxbpeWQXDSPROztVi6rRDMYBi0gaCBRi+xpr/8lMZsIeEUvLf8
+         v5Ow==
+X-Gm-Message-State: AHYfb5igkpbSFPnbGfwTAcm0/dYq61kxeq2VSOwvT2G1nrdLs1KkEduv
+	ybLuTh5bQMKJiw3KY0o=
+X-Received: by 10.223.134.23 with SMTP id 23mr2604051wrv.79.1504155646279;
+        Wed, 30 Aug 2017 22:00:46 -0700 (PDT)
+Return-Path: <london.jack1000@gmail.com>
+Received: from vps99874.ovh.net ([2001:41d0:52:a00::ca1])
+        by smtp.gmail.com with ESMTPSA id m16sm5458868wrg.16.2017.08.30.22.00.41
+        for <turner.ugo@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 30 Aug 2017 22:00:42 -0700 (PDT)
+Message-ID: <59a797fa.90c5df0a.63f4f.2f52@mx.google.com>
+Date: Wed, 30 Aug 2017 22:00:42 -0700 (PDT)
+From: london.jack1000@gmail.com
+X-Google-Original-From: Halice@vps.com
+Content-Type: multipart/mixed; boundary="===============1321623805=="
+MIME-Version: 1.0
+To: turner.ugo@gmail.com
+Subject: Daily data
+
+--===============1321623805==
+Content-Type: text/html; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+
+<h2>Météo 7 jours</h2><p><b>Thursday 31 August</b> : min 10.58°, max 10.69°, hum 92%</p><p><b>Friday 01 September</b> : min 15.63°, max 15.71°, hum 87%</p><p><b>Saturday 02 September</b> : min 18.45°, max 18.5°, hum 74%</p><p><b>Sunday 03 September</b> : min 18.53°, max 18.56°, hum 67%</p><p><b>Monday 04 September</b> : min 17.72°, max 17.72°, hum 62%</p><p><b>Tuesday 05 September</b> : min 14.65°, max 14.65°, hum 77%</p><p><b>Wednesday 06 September</b> : min 12.08°, max 12.08°, hum 91%</p><h2>Actualités</h2><p>La réforme du code du travail dévoilée par le gouvernement à midi</p><p>La tempête Harvey arrive en Louisiane, Houston toujours sinistré</p><p>US Open : le numéro un français Jo-Wilfried Tsonga éliminé au deuxième tour</p><h2>Concerts</h2><h4>La Mécanique Ondulatoire</h4><p><b>[Thursday] Paname Rock'n'Roll Revue X 07, 08, 09 SEPT 17</b> (from Thursday 07 September 21:00 to Sunday 10 September 00:55)</p><p>La Mécanique Ondulatoire et Francis Viel sont heureux de vous présenter : 
+
+▬▬ PANAME ROCK'N'ROLL REVUE ▬▬  
+La grande kermesse du rock parigot de bonne facture fait par de bons jeunes" (Eddie Bar Clès) 
+
+Les 07, 08 et 09 Septembre 
+à la Mécanique Ondulatoire 
+06€ Soir - Pass 15€ X 20h00 
+
+☻ JEU 07.09 
+- CHEAP RIOT (Part Time Punk - Metadrone records) 
+- CHROME REVERSE (Rock'n'Roll - Mag Wheels Records) 
+- WHACKS (Garage, Punk - No Label) 
+
+☻ VEN 08.09  
+- Loolie and the Surfing Rogers (Soul, Surf - Bullit Records) 
+- DWEAMZ (Post-Soul - No Label) 
+- Howlin' Jaws (Rockab' de Punks - No Label) 
+
+
+☻ SAM 09.09 
+- The Ready-Mades (Soul & Beat - Soundflat Records) 
+- The Wave Chargers (Surf - Sonic Twang)
+- French Boutik (Mod 60s - CopaseDisques)   
+
++ DJs tous les soirs 
+ Topper Harley / Rhythmville / THE RAGDOLLS
+ Soul, Rock, Garage, 60s, Punk, Boogaloo</p><hr/><p><b>[Wednesday] PLAX, Dérapage, Stalled Minds ■ 06.09 ■ La Meca</b> (from Wednesday 06 September 21:00 to Thursday 07 September 00:00)</p><p>MERCREDI 06 SEPTEMBRE
+
+☻ PLAX + Dérapage + Stalled Minds
+Prévente : 07€
+Sur Place : 09€
+
+--------------------------------------------------------------------------------------
+
+☻ PLAX (Garage, Noise, Post Punk - USA)
+
+Plax, c’est le genre de groupe avec qui tu vas rouler des kilomètres et des kilomètres sur une autoroute où les limitations de vitesses et les péages n’existeraient pas (une Autobahn quoi !). C'est une batterie qui ne fait aucun prisonnier, une basse québlo sur une ligne de croches et des guitares aiguisées  et insoumises ! Au chant, c'est aussi violent que sexy. Ça met un coup de poing dans l’oreille tout en te léchouillant le lobe.  
+
+Venant de la très fertile ville d’Austin, le qatuor réunit des membres stakhanovistes de la scène garage locale que l’on a pu voir dans des formations telles que Spray Paint, OBN IIIs, Skeleton ou encore Crooked Bangs. Ils viennent tout juste d’accoucher de leur premier long format 'Clean Feelings' sorti chez le label du coin de la rue Super Secret Records. 10 titres nerveux et tapent dedans qui mélangent DIY Hardcore, Post-Punk et Garage lourd avec maestria. Premier concert à Paris et surement première claque de la saison si l’on se fie aux vidéos tutube. 
+
+ECOUTE : https://soundcloud.com/supersecretrecords/plax-what-a-waste
+REGARDE : https://www.youtube.com/watch?v=Bozgwv157Qk
+
+☻ Derapage (Garage Punk  - Paris) 
+FB : fb.com/TheHoneyMoneyWiped/
+
+☻ Stalled Minds (Hardcore Punk) 
+FB : fb.com/stalledmindsparis/ 
+Bandcamp : http://stalledminds.bandcamp.com
+ 
+
+--------------------------------------------------------------------------------------
+
+//// OUAIB ////
+Site : www.mecanique-ondulatoire.com
+Facebook : fb.com/lamecaniqueondulatoire
+Twitter : @lamequeannick
+Instagram : #lamecaniqueondulatoire
+Newsletter : https://signup.ymlp.com/xgmqjmjhgmguj</p><hr/><p><b>[Thursday] Demon's Claws + Bisou de Saddam // 31.08 // La Méca</b> (from Thursday 31 August 21:30 to Friday 01 September 00:30)</p><p>Teenage Menopause RDS & La Mécanique Ondulatoire PRESENTENT
+
+
+☻ Demon's Claws (Garage Rock / CA, Montreal / In The Red Records)
+
+☻ bisou de saddam (La plage dans la tête / Paris - Nantes)
+
+Préventes : 10€
+https://www.yesgolive.com/la-mecanique-ondulatoire/demons-claws-guest
+Sur place : 12€
+
+LA MÉCANIQUE ONDULATOIRE
+8 PASSAGE THIÉRÉ
+PARIS 11ème
+Metro : Ledru Rollin (Ligne 8) ou Bastille
+
+--------------------------------------------------------------------------------------
+
+☻ DEMON'S CLAWS (Garage Rock / CA, Montreal / In The Red Records)
+Demon’s Claws, c’est un cocktail détonnant entre énergie punk, le shuffle Blues et une couronne de guitares distorsionnées façon Garage. Shakez bien  et n’oubliez pas les glaçons car vous risquez d’avoir chaud dans le sous-sol aoutien de la Meca. Servez, de préférence, dans un verre à pied où Dita Von Tease a l’habitude de faire son show… Grrrr. Les Caribous sauront vous faire apprécier leur liqueur de Garage Punk. Souvenez-vous, nous avions déjà goutté les saveurs du breuvage Canadien en 2011. Cinq ans après leur concert mémorable dans notre cave, Demon’s Claw remet sa tournée !
+
+AIME : https://www.facebook.com/Demons-Claws-81731164888/
+REGARDE : https://www.youtube.com/watch?v=WcdRs8-WD7g
+ECOUTE : https://demonsclaws.bandcamp.com/
+
+☻ bisou de saddam 
+Les petits chefs de la joyeuseté, les belles mélodies pour faire durer l'été ! 
+Yeux : https://www.facebook.com/bisoudesaddam/
+Oreilles : https://bisoudesaddam.bandcamp.com/
+
+
+
+-------------------------------------------------------------------------------------
+
+//// OUAIB ////
+Site : www.mecanique-ondulatoire.com
+Facebook : fb.com/lamecaniqueondulatoire
+Twitter : @lamequeannick
+Instagram : #lamecaniqueondulatoire
+Newsletter : https://signup.ymlp.com/xgmqjmjhgmguj</p><hr/><p><b>[Wednesday] Abraham Mind djset @Mécanique Ondulatoire</b> (from Wednesday 30 August 22:30 to Thursday 31 August 02:00)</p><p>! ! ! LAST MINUTE ! ! ! 
+
+ABRAHAM MIND REMPLACE POLIMENT</p><hr/><p><b>[Tuesday] Brat Farrar + Blackup - 29/08</b> (from Tuesday 29 August 21:00 to Wednesday 30 August 02:30)</p><p>XVIII RECORDS et La Mécanique Ondulatoire présentent : 
+
+♠ BRAT FARRAR (Garage Punk, New Wave, Noise, Experimental
+- Melbourne)
+Sam Agostino et ses accolytes sont de retour en Europe avec leur son déflagrateur pour notre bon plaisir.
+Une expérience unique à ne pas rater !
+
+Ecoute : https://bratfarrar.bandcamp.com/
+Aime : https://www.facebook.com/brat.farrar.9
+
+♣ BLACKUP (RnR - Ghent)
+"We like driving around in a beat up van, town to town, playing that hardrock music."
+
+Ecoute : https://blackup.bandcamp.com/
+Aime : https://www.facebook.com/blackupblackup/?pnref=lhc
+
+
+PAF 8 euros sur place :-)
+
+...................................................................................................
+
+La mécanique Ondulatoire :
+https://www.facebook.com/lamecaniqueondulatoire/
+XVIII Records :
+https://www.facebook.com/XVIIIRECORDS/</p><hr/><p><b>[Monday] D-Day ! Benefits Show->Petrol GirlsxDream NailsxBien à Toi/La Meca</b> (from Monday 28 August 20:00 to Monday 28 August 23:00)</p><p>Benefits Show en soutien à la Halte Femmes !
+
+________________________
+PETROL GIRLS (Post-Hardcore Feministe/UK-Austria) :
+
+Petrol Girls est, pour beaucoup, LA grosse claque de ces derniers mois (certains iraient même jusqu'à dire que c'est le meilleur groupe du monde ... Et ce ne serait pas complêtement faux).
+Le quatuor propose un post-hardcore sans concession, loin des standards du genre, une batterie et un chant puissant, soutenu par une basse et une guitare qui groovent à t'en faire danser sans même avoir eu le temps de dire "Putain j'aime ce groupe".
+Bref, un sans faute sur la forme, et qu'en est il du fond ?
+Des paroles engagées,  en soutien pour les réfugiés, féministes, comme peu de groupes en proposent.
+
+Bref, Petrol Girls c'est un groupe important et qui vaut vraiment le détour sur scène, comme en lisant le livret qui vient avec leur superbe album !
+
+
+Fb : https://www.facebook.com/Petrolgirls/
+Bandcamp : https://petrolgirls.bandcamp.com/
+Live : https://www.youtube.com/watch?v=o4e9paCo1dE
+________________________
+
+DREAM NAILS (Sorcières punk feministes et DIY/Uk) :
+
+Les sorcières DIY reviennent presque un mois après leur passage à Paris, rien que pour toi ! Si tu les as loupé, le ratrapage s'impose !
+Leur punk-rock catchy n'a rien à envier aux grands, un son bien old School exécuté par un quatuor exclusivement féminin hyper talentueux !
+La bonne humeur et le talent se dégagent par tous les pores de la peau de ce groupe, il n'y a pas que leur manucure qui nous fasse réver, elles envoient du steak sur scène également !
+
+
+
+Fb : https://www.facebook.com/yourdreamnails/
+Bandcamp : https://dreamnails.bandcamp.com/
+Live : https://www.youtube.com/watch?v=cBFcQDZd6ZA
+_________________________
+
+BIEN À TOI  (Post-Chien/France):
+
+C'est nos amours de Bien à Toi qui viendront ouvrir le bal !
+Ils profiteront d'une petite tournée estivale afin de venir se poser sur Paris, et bon sang ça faisait longtemps qu'on avait pas eu les coquins sur la capitale !
+Après avoir écumé des tournées en France et ailleurs, sorti plusieurs disques et affiné leur musique bien à eux, le groupe de post-chien instrumental qui déchire tout va encore une fois venir te transporter avec leur guitare pleine de sensibilité, leur basse enivrante et leur batterie toujours plus percutante !
+Que ce soit par ambiance "aquatique" ou avec des riffs ultra efficaces, Bien à Toi ne laisse personne de marbre : ça joue fort, ça joue bien, ça fait danser et bouger la tête, à tel point que quand les quatres comparses ont finis leur set, on en redemande, sans avoir la moindre idée si 1 minutes ou 3 jours viennent de se passer avec eux !
+
+
+Fb : https://www.facebook.com/bienatoi
+Bandcamp : https://bienatoi.bandcamp.com/
+Live : https://www.youtube.com/watch?v=eAmweCX4sfI
+
+________________________
+
+HALTE FEMMES :
+
+La Halte Femmes est une association reconnue d'utilité public, un accueil de jour, avec comme particularité de mettre à l'abri uniquement des femmes.
+Ce lieu ouvert pour toutes les femmes à la rue, isolées ou précaires, afin de leur porposer un endroit ou se reposer, reprendre des forces, manger, prendre des cours de français, trouver de l'aide pour l'ensemble des démarches administratives ou juste pour un café est LE seul à être exclusivement pour femmes.
+
+Le concert sera donc en soutien à cette asso pas comme les autres, qui aide plus d'une centaine de femmes dans le besoin chaque jour.
+
+# DIY REALISE TA PROPRE B.A. FACILE ET PAS CHERE: 
+En plus des petits sous récoltés, nous aurons également un panier disponible afin d'y déposer des dons de produits d'hygiène et de bien-être en tout genre (serviettes hygiéniques, tampons, crème, brosse à dents, dentifrice, savon, rouge à lèvres, maquillage etc etc).
+On compte sur vous pour penser à elles, ces petits gestes ne sont pour la  plupart d'entre nous que de petits riens, mais sont d'une aide immense pour le quotidien de ces femmes !
+
+________________________
+
+P.A.F. : 6 euros
+Lieux : La Mécanique Ondulatoire (8 passage Thiéré, Metro Bastille).
+
+On t'attend impatiemment et t'embrassons tendrement en te souhaitant un bon mois d'août d'ici là.
+
+<3 sur vous !</p><hr/><h4>LES DiSQUAiRES</h4><p><b>[Thursday] Pedacito de Son en concert aux Disquaires !</b> (from Thursday 07 September 21:00 to Friday 08 September 03:00)</p><p>Venez danser avec Pedacito de Son aux Disquaires le jeudi 7 septembre prochain à partir de 20h !!!
+
+--
+
+Pedacito de Son, qui signifie en français "Petit bout de Son" reflète bien l'univers de ce quintet aux sonorités cubaines et orientales. Le Son étant la musique traditionnelle cubaine de la fin du XIXe siècle, Pedacito de Son se réapproprie avec chaleur et volupté ces anciennes chansons (de Compay Segundo à Guillermo Portabales, en passant par Benny Moré et bien d'autres...). Une ligne musicale douce et enjouée, agrémentée d'un insolite  détour par l'Orient, des célèbres chansons de Fairouz à Asmahan revisitées par Pedacito de Son s'inviteront à la danse !
+
+
+Aristide Gonçalves : Trompette
+Nils Frechilla : Guitare / Tres
+Arnaud Gendrel : Contrebasse
+Frédéric Hervé : Percussions
+Sarah Wassef : Chant / Piano / Percussions mineures
+
+
+Des nouvelles chansons sur notre Souncloud ! : https://soundcloud.com/pedacito-de-son
+Rejoignez-nous sur Facebook : https://www.facebook.com/pedacitodeson</p><hr/><p><b>[Wednesday] Jay Golden's Jam School - Jazz Old & New -</b> (from Wednesday 06 September 21:00 to Thursday 07 September 00:30)</p><p>Hey ! 
+J'espères que vous avez tous passés de bonne vacances, que vous êtes en pleine forme pour la rentrée car c'est le grand retour de la Jay Golden's Jam School: MEWAAAAAIIIIIIIIIIIII !! 
+
+Alors comme le veux la tradition ça sera Jazz Old & New pour cette première Jay Golden's Jam School avec:
+Jay Golden, Maître de Cérémonie à la Basse,
+Ronald Baker à la Trompette et au Chant,
+François Faure au Clavier,
+Bruno Pimienta à la Batterie,
+Et enfin toi, Jameur de folie !
+
+Vous trouverez dans l'event les 4 listes de morceaux sélectionnés pour les 4 différents styles de musique/semaine (Jazz, Funk & Groove, Rock/ Blues/ Rock'n Roll, Soul/ R&B 60' 70') qui seront donc les mêmes jusqu'à Décembre 2017 ! ;)
+
+N'oublies pas de travailler les morceaux en amont, de partager l'event, d'inviter tes amis, et surtout de venir t'inscrire pour Jamer avec toute l'équipe de choc de la Jay Golden's Jam School ! :D 
+A mercredi 6 Septembre !!! Mewai !
+
+Hey !
+Hope you've all enjoyed your vacations and you're ready for the start of the school year because is the great return of the Jay Golden's Jam School: MEWAAAAAAAIIIIIIII !
+
+As traditionally it will be Jazz Old & New for this first week of the month, with:
+Jay Golden, MC and Bass,
+Ronald Baker, on Trumpet and Vocals,
+François Faure, on Keys,
+Bruno Pimienta, on Drums,
+And finally you, best Jamer ever !
+
+You'll find the 4 song lists for the 4 different music style/week (Jazz, Funk & Groove, Rock/ Blues/ Rock'n Roll, Soul/ R&B 60' 70') it will be same song lists until December 2017 ! ;)
+
+Don't forget to learn those songs, to share the event, to invite friends, and most of all to come and suscribe your name to Jam with the Jay Golden's Jam School Team ! :D
+See you on Wednesday the 6 of September !!! Mewai !
+
+SONG LISTS SEPTEMBER - DECEMBER:
+
+Jazz
+1. Straight No Chaser Miles Davis
+https://www.youtube.com/watch?v=ooS2i65-vk8
+2. My Funny Valentine Ella Fitzgerald
+https://www.youtube.com/watch?v=UjuaZDdqmCw
+3. Au Priave Charlie Parker
+https://www.youtube.com/watch?v=dvdQYSWOobc
+4. Red Clay Freddie Hubbard
+https://www.youtube.com/watch?v=wA1ZelIbUfI
+5. Come Morning Grover Washington Jr.
+https://www.youtube.com/watch?v=MEjFvFlz59g
+6. Bubbles Herbie Hancock
+https://www.youtube.com/watch?v=4uNaOnO876s
+7. Blue Train John Coltrane
+https://www.youtube.com/watch?v=XpZHUVjQydI
+8. Just In Time Dean Martin
+https://www.youtube.com/watch?v=GeajR79BjjU
+9. Singing in the Rain Gene Kelly
+https://www.youtube.com/watch?v=w40ushYAaYA
+10.Someone to watch over me Ella Fitzgerald
+https://www.youtube.com/watch?v=TYEeAOTIQ2c
+
+Funk / Groove
+1. I Ain’t Gonna Stand For It Stevie Wonder
+https://www.youtube.com/watch?v=ab6Dc1IAMPg
+2. Hair Graham Central Station
+https://www.youtube.com/watch?v=nvMhPqg2jCo
+3. U Blow My Mind Blackstreet
+https://www.youtube.com/watch?v=ThmqyKA5y6k
+4. Do You Love What You Free Rufus Featuring Chaka Khan
+https://www.youtube.com/watch?v=vphSSRJS7kk
+5. Bootylicious Destiny’s Child
+https://www.youtube.com/watch?v=IyYnnUcgeMc
+6. I G Y Donald Fagen
+https://www.youtube.com/watch?v=sogYgHlNnqo
+7. Let’s Groove Tonight Earth, Wind, & Fire
+https://www.youtube.com/watch?v=Lrle0x_DHBM
+8. Back In Love Again L T D
+https://www.youtube.com/watch?v=K3H-efs9wL4
+9. Just Fine Mary J. Blight
+https://www.youtube.com/watch?v=G6ZjBPXSmnE
+10.Off The Wall Michael Jackson
+https://www.youtube.com/watch?v=B3MFbhwfEXU
+
+Blues, Rock & Roll, Rock
+1. You Really Got Me The Kinks
+https://www.youtube.com/watch?v=fTTsY-oz6Go
+2. Panama Van Halen
+https://www.youtube.com/watch?v=B2r8qpf2Paw
+3. Dust My Broom Elmore James
+https://www.youtube.com/watch?v=lkeoJggtSu0
+4. Blue Wind Jeff Beck
+https://www.youtube.com/watch?v=5GH9ENVkHW0
+5. Manic Monday The Bangles
+https://www.youtube.com/watch?v=SsmVgoXDq2w
+6. Peg Steely Dan
+https://www.youtube.com/watch?v=ZwyTrWJ7Djw
+7. Runaround Sue Dion
+https://www.youtube.com/watch?v=ID-jsd0HGZs
+8. Midnight Hour Wilson Pickett
+https://www.youtube.com/watch?v=FGVGFfj7POA
+9. Keys To The Highway Little Walter
+https://www.youtube.com/watch?v=Xc-wdIdg5BA
+10.Hey Jude The Beatles
+https://www.youtube.com/watch?v=NWP_lqd_8M0
+
+Soul/ R&B 60's 70's:
+1. You Really Got A Hold On Me Smokey Robinson
+https://www.youtube.com/watch?v=AdDnqSFYXFs
+2. The Honeydipper Jack McDuff
+https://www.youtube.com/watch?v=qa9Eoym_xPI
+3. Tell It Like It Is Percy Sledge
+https://www.youtube.com/watch?v=VhdsRDe92z0
+4. I’ve Been Loving You Too Long Otis Redding
+https://www.youtube.com/watch?v=YIlWjhci01U
+5. Revelation The YellowJackets
+https://www.youtube.com/watch?v=XX76XqO0wL0
+6. Can’t Hide Love Earth, Wind, & Fire
+https://www.youtube.com/watch?v=wr0ekZlcM8E
+7. This Masqurade George Benson
+https://www.youtube.com/watch?v=i4s9wVRIXeU
+8. Since I Lost My Baby The Temptations
+https://www.youtube.com/watch?v=HSgqO7LIFL8
+9. Love And Happiness Al Green
+https://www.youtube.com/watch?v=rqqAnjY2Rmo
+10.You Send Me Saw Cooke
+https://www.youtube.com/watch?v=mrwfB4aAZZc</p><hr/><p><b>[Tuesday] Hugo Corbin Quartet aux Disquaires</b> (from Tuesday 05 September 21:00 to Wednesday 06 September 03:00)</p><p>Concert de rentrée pour mon Quartet aux Disquaires le 5 Septembre à 20h pour deux sets de compositions.
+L'entrée est gratuite, venez nombreux!!
+Les Disquaires vous accueillent dès 17h.
+
+Srdjan Ivanovic: Batterie
+Marc Buronfosse: Basse
+Adrien Sanchez: Saxophone Ténor
+Hugo Corbin: Guitare</p><hr/><p><b>[Sunday] Napoleon Da Legend & Venomous2000 Concert Hip-Hop à Paris</b> (from Sunday 03 September 19:00 to Monday 04 September 02:00)</p><p>Ne ratez pas l'événement Hip-Hop de la rentrée!! Napoleon Da Legend & Venomous 2000 se partageront la scène pour 2 concerts exceptionnels!!!
+L'éloquence légendaire de Brooklyn et la verve venimeuse du New-Jersey enfin réunis à Paris!
+Ce concert aux Disquaires clôturera en apothéose la tournée "back for more" , qui aura permis aux 2 MC d'affûter leurs shows dans divers villes de France, Allemagne et République tchèque.
+Amateurs de musique, de flow, de lyrics, d'esprits ouverts et authentiques, venez vous ambiancer pour bien finir l'été!
+
+Ca se passe le Dimanche 3 septembre dès 18h aux Disquaires 4/6 rue des taillandiers 75011 Paris 
+Presenté par Nes Pounta
+Warm up & after show par Dj End.k et Architeknic "Da Hip-Hop Artist"
+Le Hip-Hop vit, et en plus il est gratuit!!!
+
+18h : warm up avec DJ End’K et Architeknic
+19h30 : Venoumous 2000
+21h : Napoleon Da Legend
+23h : after show avec DJ End’K et Architeknic
+
+*****
+
+NAPOLEON DA LEGEND
+Africain, né à Paris, élevé à Washington DC et maintenant basé à Brooklyn, le lyriciste Napoleon Da Legend évoque la triste réalité du monde actuel sans jamais perdre l'espoir pour de meilleur lendemain! Son court-métrage pour le morceau “Wise Men” avec le regretté Sean Price , est vite devenu culte dans le monde du Hip-Hop en défiant ouvertement les codes de l'industrie musicale. Son habilité pour les jeux de mots, sa voix et son flow, sont sortis de l'obscurité grâce au hit “Oxygen” en featuring avec Raekwon du légendaire Wu-Tang Clan. Napoleon Da Legend, à depuis tourné en Europe et aux Etats-Unis, avec notamment des performances remarquables au Brooklyn Hip-Hop Festival en juin 2015 et au Festival HipOpsession de Nantes au côtés de DJ Poska en fevrier 2016 et 2017. En juin 2016, il sort une mix-tape en deux volumes “Steal This Mixtape one & too” qui a pour concept de “voler” les beats de ses producteurs préférés (J Dilla, Madlib, RZA, Onra… etc) et de créer de nouveaux morceaux à partir de ça. Ce projet à permis de créer le buzz dans le monde du Hip-Hop et de montrer la maturité et la sincérité de Napoleon Da Legend, qui pose ses textes remplis d'émotion dans un univers musical très soigneusement sélectionné. En fevrier 2017, Napoleon a presenté cette mixtape au cours d'une tournée de 15 dates en France et Belgique.
+
+****
+
+VENOMOUS2000 the Ultra Emcee Bio
+MC du New-Jersey Venomous2000 The Ultra Emcee vient présenter son nouvel album en Europe "Sounds Of The Great Ones" produit par le beatmaker et ingénieur du son Serbe Trilian G-Crew
+Son style s'inscrit dans la tradition du vrai Hip-Hop « Boom Bap » avec un message conscient.
+Venomous20000 est engagé dans la culture Hip-Hop depuis un long moment et en est à son 10ème album!!!
+Étant dans une démarche de transmission, de partage et d'échange il a décider de parcourir l'Europe afin de diffuser sa musique et son message positif.
+Venomous2000 porte bien son nom de "ultra emcee", MC (maitre de ceremonie), il est un vrai phénomène sur scène, très interactif avec le public ,il a pour principe de toujours donner le maximum en live!
+
+****</p><hr/><p><b>[Saturday] The Sha La Las (UK mod soul),French Boutik,Lionel G, Disquaires</b> (from Saturday 02 September 21:00 to Sunday 03 September 03:00)</p><p>We are thrilled to welcome one of the best UK soul/mod groups, The Sha La La's, for their first ever show in Paris ! French Boutik will have guests Graham Lentz on percussion & Olivier Popincourt on organ. And DJ Lionel Girard will ensure a packed dancefloor ! 
+
+It will be at the lovely LES DiSQUAiRES, in the Bastille area. Lodging from Republique to Bastille is all in fun places and walkable to the venue.</p><hr/><p><b>[Friday] Vacilon Latino aux Disquaires avec "Tu Infierno"</b> (from Friday 01 September 21:00 to Saturday 02 September 03:00)</p><p># VENDREDI 1er SEPTEMBRE 2017 # 
+
+LE FUEGO LATINO débarque aux Disquaires,  préparez vous pour une rentrée explosive !!!
+Venez  brûler le plancher avec la Cumbia festive et la Salsa brava du groupe «Tu Infierno». Suivi d'une sélection "festejera" par Dj Nahuen.
+
+Le «Vacilon» tropical vous attend pour une fête endiablée. Salsa, cumbia, reggaeton, merengue, samba, afro, ska, dance hall, un vo-yage sans frontières à travers l’âme endiablée de l’Amérique latine. Venez sauter, danser, crier et vibrer le son latino.
+
+===========================================
+
+20H30 Live "TU INFIERNO"
+
+Plus qu’un groupe c’est une véritable famille cosmopolite. Baigné dans la culture sud américaine ils sont devenus les spécialistes machiavéliques des ambiances qui réveillent en vous le démon de la Danse. Ils attisent le feu avec un répertoire délibérément ensorcelant, fait de Salsa enivrante, de Rumba envoûtante, de Boléros fascinant, des Cumbias piquantes et bien d’autres musiques diablement dansantes. Allez Laissez-vous transporter dans un voyage musical à travers l’Amérique latine et venez faire le plein d’énergie pour une rentrée explosive.
+Le tourbillon Tropicaliente vous attend pour une fête endiablée. 
+
+♦  https://youtu.be/b84lsNQiviw?t=14s
+
+===================================================
+
+DJ Set
+
+Dj Nahuen, mélange les genres pour vous sélectionner des rythmes explosifs et calientes.  Un voyage sans frontières à travers la world musique : Cumbia, salsa, reggaeton, merengue, samba, afro, ska, dance hall. Toute une richesse de sons pour enflammer la piste. Venez partager son set festif et explosif ainsi que les morceaux incontournables  de la fiesta latina.  Rejoignez la fièvre latine pour rompre les frontières et le Dance-floor.
+Los espero para una super fiesta !!! world musique and full Bordel !!!!
+
+Les Disquaires vous accueillent dès 17h.
+
+LES DISQUAIRES
+4-6 rue de Taillandiers
+75011 PARIS
+M° Bastille, Breguet Sabin ou Ledru Rollin 
+
+♦ https://www.facebook.com/lesdisquaires/</p><hr/><p><b>[Thursday] Les Bécots da Lappa aux Disquaires</b> (from Thursday 31 August 20:30 to Friday 01 September 00:00)</p><p>Les 7 musiciens des Bécots da Lappa vous plongent dans le meilleur de la musique populaire brésilienne (samba, choro, forro, coco...), dans la joie et la bonne humeur.
+Retrouvez l'ambiance des bals cariocas et venez danser comme vous êtes !
+
+Exceptionnellement en formule quintet
+
+Charlotte ZANOTTI : cavaquinho, voix // José FERREIRA : guitare 7 cordes // Giulia TAMANINI : saxophones // Frédéric HERVÉ : percussions, voix // Thibaut GUÉRIAUX : percussions, voix
+
+Les Disquaires vous accueillent dès 18h</p><hr/><p><b>[Wednesday] Maracuja Summertour - Les Disquaires</b> (from Wednesday 30 August 21:30 to Thursday 31 August 00:00)</p><p>A tous les parisiens privés de vacances ou de retour dans la jungle urbaine! Venez vous plonger dans nos bonnes ondes créatives et festives d'avant garde!
+www.aminamezaache.com/maracuja 
+
+Début du concert à 20h30
+LES DISQUAIRES
+4-6 rue de Taillandiers 75011 PARIS
+M° Bastille, Breguet Sabin ou Ledru Rollin
+01 40 21 94 60
+
+https://www.facebook.com/lesdisquaires
+http://lesdisquaires.com/
+
+Ce concert réalisé avec le soutien de la SPEDIDAM l'alliée d'une vie d'artiste et le Collectif Veston Léger</p><hr/><p><b>[Tuesday] The Jay Golden Group, on stage for 70's</b> (from Tuesday 29 August 21:00 to Wednesday 30 August 00:59)</p><p>Hey ! La fin de l'été approche à grands pas, alors viens fêter la rentrée et vous pavaner ton bronzage et toi aux Disquaires avec Jay Golden & son "Mewai Group" dès 20h00 !
+
+"Mais qui est Jay Golden" me diras-tu ?  
+Jay Golden, de Baltimore, MD U.S.A, est un Bassiste (entre autres) qui à travaillé avec de grands artistes comme Luther Allison et Bernard Allison, Liz McComb, Screaming Jay Hawkins, BB King, en Europe Bryan Adams, Bombay, Marc Stern, au Canada, et George Clinton, George Benson, JeffMajors, Pic Connelly, Steve Kelly, Joe, Mario, aux Etats-Unis...Par exemple !
+
+The Jay Golden Group vous fait voyager à travers la musique de ses racines : Le Funk-Jazz-Fusion des années 70 : de Miles Davis à George Duke, Herbie Hancock, David Sanborn, Billy Cobham pour en nommer que quelques-uns... 
+C'est accompagné de son fameux " Mewai Group* " de, reconnus sur la scène musicale pour certains, écletiques, mais surtout talentueux musiciens que Jay vous fera découvrir le "Cool", le "Slick", et le "Funky-Groove" de cette période !
+Alors ...? Heureux/se ?! A mardi 29 Août et... MEWAAAIIIII !
+
+*Featuring :
+Jay Golden à la Basse, François Faure aux Claviers, Sacha Lounis à la Batterie, Dino Richie à la Guitare, Alexandre Merancienne au Saxophone, et Ronald Baker à la Trompette.
+                         ---------------------------------------------
+Hey ! The summer end is coming so quickly, so come to celebrate the start of the year and swag, you and your fresh suntan at Les Disquaires with Jay Golden & his "Mewai Group" as soon as 20:00pm !
+
+"But, who is Jay Golden ?" you're asking me ?
+Jay Golden is a Bassist (among others) from Baltimore. MD USA, he worked with famous artists like Luther Allison and Bernard Allison, Liz McComb, Screaming Jay Hawkins, BB King, in Europe Bryan Adams, Bombay, Marc Stern, Canada George Clinton, George Benson, JeffMajors, Pic Connelly Steve Kelly, Joe, Mario, in the United States... For any exemples !
+
+The Jay Golden Group will take on a you on voyage to the time of the music of his roots: The Funk-Jazz-Fusion 70s: Miles Davis to George Duke, Herbie Hancock, David Sanborn, Billy Cobham to name a few... 
+Accompanied with his " Mewai Group* ", made of reconized musicians on the music stage for some of them, multi-nationals, ecletics and most of all talented musicians, Jay will make you discover the "Slick", the "Cool" and the "Funky Groove" of this period !
+So... ? Happy ?! See you on 29th of August and... MEWAAAIII !
+
+*Featuring :
+Jay Golden on Bass, François Faure on Keyboards, Dino Richie on Guitar, Sacha Lounis on Drums, Alexandre Merancienne on Alto & Soprano Saxes and Ronald Baker on Trumpet !</p><hr/><h4>Le Pop-Up du Label</h4><p><b>[Thursday] Courtney Marie Andrews :: 07.09.17 :: Le Pop up du Label</b> (from Thursday 07 September 20:00 to Thursday 07 September 23:00)</p><p>Öctöpus présente le 7 septembre au Le Pop-Up du Label :
+
+COURTNEY MARIE ANDREWS (US)
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+C'est le moment d'aimer l'Amérique, tandis que s'affiche partout le visage hideux de sa vulgarité satisfaite. On oublie parfois que cette image-là n'est que le revers de celle que nous aimons, que l'une ne va pas sans l'autre. Or une jouvencelle à frange nous fixe plein pot sur la pochette de son premier album, nommé crânement « La Vie honnête ». Courtney Marie Andrews a l'air d'avoir 12 ans, en a 26 et au moins une vie derrière elle : plusieurs de ses dix chansons débutantes sont manifestement nourries par la fin et les attenants d'une affaire sentimentale. Native de Phoenix (Arizona), elle est un pur produit de la tradition du Southwest, territoire où la country, celle qu'écoutent aussi les « ugly Americans » (comme dit l'une de ses chansons), se mâtine de folk-rock, voire se panache d'un trait de soul. On s'en voudrait d'encombrer les bagages de miss Andrews, mais disons qu'elle tient d'une Linda Ronstadt qui eût écrit elle-même son répertoire, à la manière de Joni Mitchell. Pas intimidée par les balises du genre, elle fait bouillir un sang neuf dans ces histoires de fille « un peu seule et un peu défoncée », dans un bar de Houston, chassant un fantôme dont le coeur a guéri trop vite, alors que « certains mettent plus de temps à rompre ». Une voix surtout nous saisit, et ne va pas nous quitter facilement. La preuve, ce final Only in my mind, qui fendrait le coeur des pierres. C'est une suite d'accords entendue cinq cents fois, mais Courtney Marie Andrews lui insuffle une passion, une douce violence qui emporte tout sans rien appuyer
+Sites Internet & Vidéos:
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+https://www.courtneymarieandrews.com/
+https://courtneymarieandrews.bandcamp.com/
+https://www.youtube.com/watch?v=VjuDrInUKXk
+
+
+▬▬▬ PARTENAIRES ▬▬▬▬▬▬▬▬▬▬
+Soon
+
+▬▬▬▬ OCTOPUS
+http://projet-octopus.com/
+https://www.facebook.com/ilove.octopus/
+https://www.instagram.com/ilove.octopus</p><hr/><p><b>[Wednesday] John and The Volta // 06.09.17</b> (from Wednesday 06 September 21:00 to Thursday 07 September 00:00)</p><p>BASE Productions & Le Pop-Up du Label présentent...
+
+John and the volta le 06 Septembre 2017
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+Ombres eighties aux accents post-punk au Pop-Up du Label pour la release party de l'album « Low Life » de John and the Volta (Rouge Neon Records/AlterK).
+
+John & the Volta s'est fait connaître en 2013 avec Empirical. Un premier EP singulier et hautement attractif qui l'amènera en finale des Inrocks Lab. 
+
+Avec Low Life, John revient avec un album mystérieux, aérien et parfois dur comme une rupture amoureuse inconsolable. On y croise le romantisme de The Smiths, l’énergie sexuelle de Blondie et les tourments de The xx.Loin de rester dans une fascination rétro-futuriste, John se rapproche également de ses contemporains et plus précisément de l'écurie Italians Do It better sur « Bad Dreams », tube parfait pour une virée nocturne le coeur chargé et les yeux pleins d’étoiles.
+
+Jusque dans l’ artwork envoûtant réalisé par le New Yorkais David Drake ( Glass Animals, Django Django), on reste sidéré par la sensualité, l'androgynéité propre à David Bowie qui planent sur cet album.
+
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+Ouverture des portes à 20H.
+
+Préventes : http://bit.ly/2k9RBLz
+
+Le Pop Up du Label, 14 Rue Abel, 75012 Paris
+
+Inscrivez vous à notre newsletter pour + d'infos: http://bit.ly/2c7riBE</p><hr/><p><b>[Tuesday] Mardi Jazz at Popup! / 05.09.17</b> (from Tuesday 05 September 21:30 to Wednesday 06 September 03:00)</p><p>Tous les mardis le Pop Up du Label se transforme en club de jazz pour une jam de qualité dirigée par le trio de Stéphane Chandelier avec cette semaine:
+
+Batterie : Stéphane Chandelier
+Guitare : Gustave Reichert
+Contrebasse : Gabriel Midon
+
+Vous pouvez manger, boire,et l'entrée est libre!
+Le restaurant vous accueillera avec de nouvelles spécialités chaque semaine.</p><hr/><p><b>[Saturday] Get Ready! #13 / Jamwax x Happy Tunes x High Bass</b> (from Saturday 02 September 22:00 to Sunday 03 September 02:45)</p><p>GET READY!, une soirée 100% dédiée à la musique jamaïquaine des 60s et 70s!
+
+Eh, t'as vu comment il est content le Jackie Mittoo??! Moi aussi ça m'a fait ça quand on a  su qu'on commençait la saison dès le 2 septembre avec la 13eme Get Ready!
+Après Kojak, Indy Boca, Positive Vibration, Roots Worker, Kingreg, Foundation Hifi et Roots Fi Disco, Selecta Max et Tonto Piero, nos acolytes du Upfull Posse, Zapo, Loren C, Mad Echoes, Twaan, Tunda, Baby Face Nelson, Dave Black Sheep ou Daddy Al, on a encore des selectors et sounds à vous faire découvrir.
+
+Au programme:
+
+JAMWAX (Joe):
+Joe est le fondateur du label Jamwax, spécialisé dans la réédition de morceaux assez rares, principalement jamaicains mais pas que! Sur leur catalogue, on retrouve des artistes comme Glen Adams, Winston Francis, Cyril Diaz, Shadow, Owen Knibbs, D'Nations, Vivian jones et plein d'autres! Joe est avant tout un collectionneur et selector averti, et ce dans toutes les époques de la musique yardie.
+
+
+
+HAPPY TUNES SOUND (Charlie):
+Sound system tout terrain créé en 1999, diffuseur de bonnes vibes ; Happy Tunes Sound c'est un concept, qui rassemble les "vinyls addict" autour d'une passion, le bon son et la vibration qui en émane !  On recevra donc Charlie, lui aussi touché par la fièvre rock steady il ya quelques années, pour partager ses morceaux joyeux pour des temps heureux ("Happy Tunes for Happy Times")
+
+
+HIGH BASS (Upfull Posse):
+Et puis nous, toujours les mêmes, va falloir vous y faire! Enfin non, cette fois ci il y en aura qu'un, pendant que l'autre sera les pieds dans l'eau. On viens sans notre sono mais celle du lieu est très très bien.
+
+
+Pendant qu'on s'occupe de vos oreilles, le chef du Pop Up du Label vous régalera à l'étage.
+
+BREF, si vous aimez Merritone, les Paragons, Stranger Cole, Lyn Taitt, Phyllis Dillon, Alton Ellis, les Heptones, Ken Boothe, Studio One, Treasure Isle, Tommy McCook, les Skatalites etc, cette soirée est faite pour vous!
+
+►► ENTREE LIBRE (ça veut dire que c'est gratuit)
+
+Visuel par Jose Tomas Caballero.</p><hr/><p><b>[Friday] Aldo The Band / 01.09.17 / Popup!</b> (from Friday 01 September 21:00 to Saturday 02 September 00:00)</p><p>Le Pop-Up du Label présente...
+
+Aldo, The Band le 1er Septembre 2017:
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+Ici aucune trace de samba ni de bossa, ni même de Brésil dans leur musique. On dirait de l’électro pop bien européenne, voire de la New Wave. Justement, cette vague fraiche nous vient des hipsters Sao Paulo. Deux frangins en l’occurrence. 
+
+Aldo, The Band est le groupe le plus représentatif de la scène alternive brésilienne. Leur deuxième album "Giant Flea" dépasse les frontières des styles musicaux, comme le fait si bien LCD Soundsystem. 
+
+Les deux enfants de São Paulo ont notamment fait les premieres parties de La Roux, The xx, Caribou et AlunaGeorge au Brésil ! 
+
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+Le Pop Up du Label, 14 Rue Abel, 75012 Paris
+
+Inscrivez vous à notre newsletter pour + d'infos: http://bit.ly/2c7riBE</p><hr/><p><b>[Tuesday] Mardi Jazz at Popup! // 29.08.17</b> (from Tuesday 29 August 21:30 to Wednesday 30 August 03:00)</p><p>Tous les mardis le Pop Up du Label se transforme en club de jazz pour une jam de qualité avec cette semaine:
+
+Batterie : David Paycha
+Piano : Daniel Gassin
+Contrebasse : Adam Over
+
+Vous pouvez manger, boire,et l'entrée est libre!
+Le restaurant vous accueillera avec de nouvelles spécialités chaque semaine.</p><hr/><h4>Pop In</h4><h4>La Petite Halle</h4><p><b>[Thursday] After Party #2 - QWEST TV Secret Show</b> (from Thursday 07 September 23:30 to Friday 08 September 03:00)</p><p>Venez prolonger le festival Jazz à la Villette avec les "AFTER PARTY" de la Petite Halle du 31 aout au 13 septembre à partir de 22H30 en accès libre ! au programme des lives uniques  & des jams torrides jusqu'au bout de la nuit.
+
+✮Qwest TV « Secret Show »  – 22H30  - accès libre ✮
+
+Fondée par Reza Ackabaraly, homme de télévision, programmateur de La Petite Halle et de Jazz à Vienne depuis plus de dix ans, avec comme associé et co-fondateur l’immense Quincy Jones, Qwest TV fête son pré-lancement avec une soirée très spéciale à La Petite Halle ! 
+
+website : http://qwest.tv</p><hr/><p><b>[Wednesday] After Party #2 - Emma-Jean Thackray's Walrus</b> (from Wednesday 06 September 23:30 to Thursday 07 September 03:00)</p><p>Venez prolonger le festival Jazz à la Villette avec les "AFTER PARTY" de la Petite Halle du 31 aout au 13 septembre à partir de 22H30 en accès libre ! au programme des lives uniques  & des jams torrides jusqu'au bout de la nuit.
+
+✮ Emma-Jean Thackray  – 22H30 - accès libre ✮
+
+Nourrie au free jazz, sous le sceau de Ornette Coleman et Peter Brötzmann, ainsi qu’au hip hop de Madlib, elle parvient à marier les deux avec goût ; appréhendant musiques électronique et ouest africaine. De cette fusion est née une musique complexe mais syncopée.
+
+écouter: https://soundcloud.com/emmajeanthackray
+voir : https://www.redbull.com/ie-en/watch-an-exclusive-session-from-jazz-trumpeter-emma-jean-thackray
+facebook : Emma-Jean Thackray</p><hr/><p><b>[Tuesday] Jam de la casserole : After show de Gregory Porter !</b> (from Tuesday 05 September 22:30 to Wednesday 06 September 02:30)</p><p>Ami(e)s de la Casserole ! 
+
+Nous avons la chance, dans le cadre des afters partys de Jazz à la Villette, d'organiser l after de Gregory Porter qui se produira le soir même dans la grande halle ! 
+
+A vos adresses, contacts et hashtag pour essayer de faire venir ce grand monsieur et ses supers musiciens lors de la jam de la cass ! Nul doute qu'ils ne sauraient apprécier l'ambiance que l'on a donné tous ensemble au cours de l'année dernière à la petite halle ! 
+
+De toutes façons on va faire assez de bruit pour qu'ils nous entendent ;) 
+
+Hâte de vous retrouvez tous pour cette nouvelle saison des jams de la cass, car vous nous avez manqués ! (même si on a apprécié les vacances :) ) 
+
+#BringGregoryTogether</p><hr/><p><b>[Sunday] After Party #2 - Africa American Trip by Jean Phi Dary</b> (from Sunday 03 September 23:30 to Monday 04 September 03:00)</p><p>Venez prolonger le festival Jazz à la Villette avec les "AFTER PARTY" de la Petite Halle du 31 aout au 13 septembre à partir de 22H30 en accès libre ! au programme des lives uniques  & des jams torrides jusqu'au bout de la nuit.
+
+
+✮ Africa American Trip by Jean Phi Dary  – 22H30 - accès libre ✮
+
+D’origine guyanaise, Jean Phi Dary a arpenté la scène caribéenne de la capitale et a accompagné plusieurs artistes africains réputés (Cheick Tidiane Seck, Keziah Jones). Il nous emmènera dans un périple alliant Afrique et Afro-Amérique avec de beaux guests en perspective.
+
+website : http://www.jeanphidary.com
+voir : https://www.youtube.com/watch?v=ZCqIZ0BMyrU</p><hr/><p><b>[Saturday] After Party #2 - Reggie Washington & Friends</b> (from Saturday 02 September 23:30 to Sunday 03 September 03:00)</p><p>Venez prolonger le festival Jazz à la Villette avec les "AFTER PARTY" de la Petite Halle du 31 aout au 13 septembre à partir de 22H30 en accès libre ! au programme des lives uniques  & des jams torrides jusqu'au bout de la nuit.
+
+
+✮ Reggie Washington & Friends – 22H30 - accès libre ✮
+
+Il fut un temps où le bassiste américain accompagnait Roy Hargrove, Steve Coleman, Brandford Marsalis et d’autres grands noms du jazz. Après avoir fait plus que ses preuves, Reggie Washington, capable de briller sur tous les spectres de la musique noir, expérimentale ou plus sur le feeling, s’est décidé à monter ses propres groupes. 
+
+website : https://reggiewashington-official.com
+voir : https://www.youtube.com/watch?v=xXgpEZwseqQ</p><hr/><p><b>[Friday] After Party #2 - Yes We Play feat Guillaume Perret</b> (from Friday 01 September 23:30 to Saturday 02 September 03:00)</p><p>Venez prolonger le festival Jazz à la Villette avec les "AFTER PARTY" de la Petite Halle du 31 aout au 13 septembre à partir de 22H30 en accès libre ! au programme des lives uniques  & des jams torrides jusqu'au bout de la nuit.
+
+
+✮ Yes We Play » feat. Guillaume Perret - 22H30 - accès libre ✮   
+ 
+La jam de Yes We Play, itinérante et sans filets, a déjà servi maintes fois à La Petite Halle. Avec Guillaume Perret, son ambassadeur, elle rendra hommage à John Coltrane, en écho à la soirée spéciale au festival Jazz à la Villette, avec des musiciens de renoms. 
+
+YWP: https://www.yesweplay.club
+Guillaume perret :guillaume-perret.fr
+Clip G. Perret :  https://www.youtube.com/watch?v=Ipw4TdhIpcI</p><hr/><p><b>[Thursday] After Party #2 - STUFF.</b> (from Thursday 31 August 23:30 to Friday 01 September 03:00)</p><p>Venez prolonger le festival Jazz à la Villette avec les "AFTER PARTY" de la Petite Halle du 31 aout au 13 septembre à partir de 22H30 en accès libre ! au programme des lives uniques & des jams torrides jusqu'au bout de la nuit.
+
+✮ STUFF. - 31 août – 22H30 - accès libre ✮
+La nouvelle sensation belge du jazz ultra-ctuel nourri au hip-hop et à l’électronique qui laissera difficilement indifférents ses auditeurs. Inspiré du groove de Marc Moulin, fondateur du Placebo belge, ils rajeunissent le propos avec des basses omniprésentes très marquées et d’effets électroniques.
+
+
+"These guys are brilliant … wide open ideas ..." - Gilles Peterson, BBC Radio 6
+
+ "Quant aux « trucs » en question, on se risque à les identifier : Flying Lotus, Aka Moon, Herbie Hancock, Weather Report et Sun Ra" - Jazznews
+
+ "Dans la lignée de The Comet is Coming et Badbadnotgood." - Les Balades Sonores
+
+écouter : https://soundcloud.com/stuffmusic
+voir : https://www.youtube.com/user/duststuff?feature=results_main
+facebook : STUFF.</p><hr/><p><b>[Thursday] AFTER PARTY #2</b> (from Thursday 31 August 23:30 to Thursday 14 September 04:00)</p><p>Venez prolonger le festival Jazz à la Villette avec les "AFTER PARTY" de la Petite Halle du 31 aout au 13 septembre à partir de 22H30 en accès libre ! au programme des lives uniques  & des jams torrides jusqu'au bout de la nuit.
+
+✮ STUFF. - 31 août – 22H30 ✮
+ La nouvelle sensation belge du jazz ultra-ctuel nourri au hip-hop et à l’électronique qui laissera difficilement indifférents ses auditeurs. Inspiré du groove de Marc Moulin, fondateur du Placebo belge, ils rajeunissent le propos avec des basses omniprésentes très marquées et d’effets électroniques.
+ event : https://goo.gl/F4GXNL
+--------
+
+ ✮ Yes We Play » feat. Guillaume Perret - 01 sept – 22H30 ✮   
+ La jam de Yes We Play, itinérante et sans filets, a déjà servi maintes fois à La Petite Halle. Avec Guillaume Perret, son ambassadeur, elle rendra hommage à John Coltrane, en écho à la soirée spéciale au festival Jazz à la Villette, avec des musiciens de renoms. 
+event: https://goo.gl/AbhGMv
+--------
+
+✮ Reggie Washington & Friends - 02 sept – 22H30 ✮
+Il fut un temps où le bassiste américain accompagnait Roy Hargrove, Steve Coleman, Brandford Marsalis et d’autres grands noms du jazz. Après avoir fait plus que ses preuves, Reggie Washington, capable de briller sur tous les spectres de la musique noir, expérimentale ou plus sur le feeling, s’est décidé à monter ses propres groupes. 
+event: https://goo.gl/yUzHss
+--------
+
+✮ Africa American Trip by Jean Phi Dary - 03 sept – 22H30 ✮
+D’origine guyanaise, Jean Phi Dary a arpenté la scène caribéenne de la capitale et a accompagné plusieurs artistes africains réputés (Cheick Tidiane Seck, Keziah Jones). Il nous emmènera dans un périple alliant Afrique et Afro-Amérique avec de beaux guests en perspective.
+event:https://goo.gl/2GBxaw
+--------
+
+✮ Emma-Jean Thackray - 06 sept – 22H30 ✮
+Nourrie au free jazz, sous le sceau de Ornette Coleman et Peter Brötzmann, ainsi qu’au hip hop de Madlib, elle parvient à marier les deux avec goût ; appréhendant musiques électronique et ouest africaine. De cette fusion est née une musique complexe mais syncopée.
+event: https://goo.gl/yqheFu
+--------
+
+✮Qwest TV « Secret Show » - 07 sept – 22H30 ✮
+Fondée par Reza Ackabaraly, homme de télévision, programmateur de La Petite Halle et de Jazz à Vienne depuis plus de dix ans, avec comme associé et co-fondateur l’immense Quincy Jones, Qwest TV fête son pré-lancement avec une soirée très spéciale à La Petite Halle ! 
+event: https://goo.gl/3P1M35
+--------
+
+✮Etienne Mbappé and the Prophets - 08 sept – 22H30 ✮
+Etienne Mbappé sait ce que c’est le groove. Avec ses « Prophets » il explore de nouveaux horizons en un jazz fusion qu’il qualifie lui-même de « groove suprême », « Liberty Jazz Dance » ou « spirit and soul food ».
+event: https://goo.gl/D9gozY
+--------
+
+✮ Oko Ebombo - 09 sept –ANNULÉ ✮
+
+LE CONCERT DE OKO EBOMBO EST REPORTÉ À UNE DATE ULTÉRIEUR.
+
+
+✮ Sibusile Xaba - 12 sept – 22H30 ✮
+Le guitariste Sibusile Xaba produit avec les percussionnistes Thabang Tabane et Moahanganai Magaluga une musique hautement spirituelle et inattendue à l’intensité saisissante. 
+event: https://goo.gl/pr3GgS
+--------
+
+✮ Akalé Wubé - 13 sept – 22H30 ✮
+La belle bande est l’une des figures de proue de l’éthio-jazz fait hors de ses frontières. A l’origine rassemblé autour de reprises de la série « Ethiopiques », le groupe a grandi en s’immergeant dans les musiques d’Ethiopie.
+event: https://goo.gl/oXF8BU
+
+Les concerts commenceront à partir de 22h30.
+Ils seront tous en accés libre .
+Possibilité de se restaurer sur place : pizza & pasta
+
+NB: les horaires de début de concert peuvent être modifiés à la dernière minute en fonction de la fin des concerts du festival Jazz à la Villette.
+
+lien la Petite halle:http://www.lapetitehalle.com
+lien festival Jazz à la Villette: http://www.jazzalavillette.com</p><hr/><h4>Le Motel</h4><p><b>[Saturday] Mets ton Scaphandre - DJ SET // LE MOTEL</b> (from Saturday 02 September 23:00 to Sunday 03 September 03:00)</p><p>Mets ton Scaphandre
+DJ Set Pop, Psyché, Rock, Groove, Disco, House
+
+Le Motel : 8, passage Josset - Paris 11
+Metro Ledru-Rollin ou Bastille
+Entrée libre</p><hr/><p><b>[Friday] It's Alright, We Are Stoned</b> (from Friday 01 September 22:30 to Saturday 02 September 02:30)</p><p>► GET STONED EZY (part.3) 
+
+>From Texas 66 to UK 70s and Tokyo 90s a Psychedelic mix by Vincent Mare.
+
+◆IT'S ALRIGHT, WE ARE STONED #03◆
+Le Motel
+Vendredi 1er Septembre
+21h30-01h30</p><hr/><p><b>[Wednesday] Jean Turner Dj Set au Môtel //\\ Dancers Talk To Dancers</b> (from Wednesday 30 August 23:00 to Thursday 31 August 03:00)</p><p>__// DANCERS TALK TO DANCERS \\__
+___________________________________________
+___________________________________________
+[...] Ou comment apprendre à danser en talons aiguilles et en chaussures de guerre [...]
+
+___________________________________________
+___________________________________________
+___________________________________________
+___________________________________________
+___________________________________________
+___________________________________________
+___________________________________________</p><hr/><p><b>[Tuesday] LENPARROT ~ dj set ☞ Le Motel // ANNULÉ</b> (from Tuesday 29 August 22:30 to Wednesday 30 August 02:30)</p><p>LENPARROT (Minimal Pop - jour après jour après jour / Nantes, FR)
+~ soirée de réouverture du Motel
+
+Showcase + DJ set
+Mardi 29.8.17 
+21.30 > 01.30
+
+Le Motel
+8 Passage Josset
+75011 Paris
+metro Ledru-Rollin
+
+Entrée Libre
+http://soundcloud.com/lenparrot</p><hr/><h4>La Petite Chaufferie - La Suite</h4>
+--===============1321623805==--

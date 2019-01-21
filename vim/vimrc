@@ -1,0 +1,145 @@
+" =============================================================================
+" " Plugin: Vundle 
+" =============================================================================
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-commentary'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'lumiliet/vim-twig'
+Plugin 'ervandew/supertab'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'yssl/QFEnter'
+Plugin 'w0rp/ale'
+Plugin 'fatih/vim-go'
+
+call vundle#end()
+filetype plugin indent on
+
+" =============================================================================
+" " Vim: Vim
+" =============================================================================
+
+colorscheme tender
+filetype indent on      " load filetype-specific indent files
+filetype off
+syntax enable
+set encoding=utf-8
+set fileencoding=utf-8
+let mapleader=","       " leader is comma
+set number
+set nocompatible
+set shiftwidth=2
+set softtabstop=2       " number of spaces in tab when editing
+set tabstop=2           " number of visual spaces per TAB
+set softtabstop=2       " number of spaces in tab when editing
+set expandtab           " tabs are spaces
+set showcmd             " show command in bottom bar
+set cursorline          " highlight current line
+set wildmenu            " visual autocomplete for command menu
+set lazyredraw          " redraw only when we need to.
+set showmatch           " highlight matching [{()}]
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+autocmd Filetype php setlocal ts=4 sts=4 sw=4
+
+" =============================================================================
+" " Vim: KeyMaps
+" =============================================================================
+
+" nnoremap <PageUp> :echo "Disabled"<CR>
+" handle tabs
+nmap <C-h> :tabe<CR>
+nmap <C-j> :tabc<CR>
+nmap <C-l> :tabprevious<CR>
+nmap <C-m> :tabnext<CR>
+" handle buffers
+nmap <C-a> :bp<CR>
+nmap <C-z> :bn<CR>
+" stop keyword highlight
+nmap <leader><space> :noh<CR>
+" space open/closes folds
+nmap <space> za
+" go to begining of line
+nmap B ^            
+" go to end of line
+nmap E $
+nmap <leader>sv :source $MYVIMRC<CR>
+nmap <silent><leader>; :w <CR><ESC>
+nmap <leader>qs :mksession!<CR> :qa <CR>
+nmap <silent> <C-Up> 10k
+nmap <silent> <C-Down> 10j
+" =============================================================================
+" " Plugin: CtrlP
+" =============================================================================
+
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+let g:ctrlp_max_files= 0
+let g:ctrlp_by_filename = 1
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+let g:ctrlp_match_window = 'min:4,max:72'
+nmap <C-a> :CtrlPBuffer<CR>
+
+" =============================================================================
+" " Plugin: NERDTree
+" =============================================================================
+
+nmap <C-n> :NERDTreeToggle<CR>
+
+" =============================================================================
+" " Plugin: PhpCsFixer
+" =============================================================================
+
+let g:php_cs_fixer_path = "~/scripts/php-cs-fixer" 
+let g:php_cs_fixer_level = "symfony"
+let g:php_cs_fixer_config = "default"               " options: --config
+let g:php_cs_fixer_rules = "@PSR2"                  " options: --rules (default:@PSR2)
+let g:php_cs_fixer_php_path = "php"                 " Path to PHP
+let g:php_cs_fixer_dry_run = 0                      " Call command with dry-run option
+let g:php_cs_fixer_verbose = 0                      " Return the output of command if 1, else an inline information.
+cnoreabbrev Fixd call PhpCsFixerFixDirectory()
+cnoreabbrev Fixf call PhpCsFixerFixFile()
+autocmd BufWritePost *.php silent call PhpCsFixerFixFile()
+
+" =============================================================================
+" " Plugin: YouCompleteMe
+" =============================================================================
+
+" Make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+
+" =============================================================================
+" " Plugin: SuperTab
+" =============================================================================
+
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" =============================================================================
+" " Plugin: Ale
+" =============================================================================
+
+let g:ale_completion_enabled = 1
+let g:ale_sign_error = '✖'
+            
+" =============================================================================
+" " Plugin: Vim-Go
+" =============================================================================
+"
+
+:autocmd BufWritePost *.go GoImports
+
+" =============================================================================
+" " Function: Custom 
+" =============================================================================
+            
+nmap <C-e> :grep! -R <cword> src/ tests/ <CR>:cw<CR>
+nmap <C-g> :exe "normal \<Leader>\<Tab>" <CR>:cclose<CR>            

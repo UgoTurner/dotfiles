@@ -1,0 +1,55 @@
+bind index g noop
+
+source ~/.config/mutt/gmailrc
+source ~/.config/mutt/muttcol
+source ~/.config/mutt/aliases
+
+set sort = 'reverse-date'
+set editor = "vim -c 'set tw=72' -c 'set wrap'"
+set timeout = "5"
+set mail_check = "10"
+set mailcap_path = ~/.config/mutt/mailcap
+set use_from = yes
+set sidebar_visible = no
+set charset="UTF-8"
+# set date_format = "!%a, %b %d, %Y at %I:%M:%S%p %Z"
+set index_format="%4C%<M?+& >%Z %[%Y-%m-%d %H:%M] %-15.15F %<M?<%4M>(%4c) %s"
+
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+
+mono bold bold
+mono underline underline
+mono indicator reverse
+color index yellow default '.*'
+color index_author red default '.*'
+color index_number blue default
+color index_subject cyan default '.s'
+color index_size green default
+color normal default default
+color body brightred default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+color body brightblue default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
+
+bind editor <space> noop
+bind index G last-entry
+bind index gg first-entry
+bind index d half-down
+bind index u half-up
+bind index D delete-message
+bind index U undelete-message
+bind index F search 
+bind index R group-reply
+bind index,pager \CP sidebar-prev
+bind index,pager \CN sidebar-next
+bind index,pager \CO sidebar-open
+bind pager <up> previous-line #scroll inside the message rather than the index
+bind pager <down> next-line
+
+macro index X '<sync-mailbox><enter-command>source ~/.config/mutt/gmailrc<enter><change-folder>!<enter>'
+macro attach cc \
+"\
+<enter-command>unset wait_key<enter>\
+<shell-escape>rm -f /tmp/mutt-attach<enter>\
+<save-entry><kill-line>/tmp/mutt-attach<enter>\
+<shell-escape>calcurse -i /tmp/mutt-attach<enter>\
+"

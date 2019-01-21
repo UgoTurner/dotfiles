@@ -1,0 +1,5 @@
+text/html; w3m -I utf-8 -T text/html; copiousoutput;
+
+text/html; mv %s %s.html && google-chrome %s.html > /dev/null; needsterminal;
+
+image/*; ~/.config/mutt/muttimage.sh %s ; copiousoutput

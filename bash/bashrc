@@ -1,0 +1,13 @@
+# Display system informations
+# screenfetch -A "Linux"
+# Disable PageUp and PageDown keybiding
+sh "$HOME"/Scripts/on-startup/disabled-keys.sh
+# Path to the Bash It configuration
+export BASH_IT="$HOME/.dotfiles/bash/bash_it"
+# Name of the Bash It theme /.bash_it/themes/
+export BASH_IT_THEME='minimal'
+# Load Bash It
+source "$BASH_IT"/bash_it.sh
+# Export Golang path
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/Projects/go

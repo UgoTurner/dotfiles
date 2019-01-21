@@ -1,0 +1,691 @@
+Delivered-To: turner.ugo@gmail.com
+Received: by 2002:a4f:c7c9:0:0:0:0:0 with SMTP id d9-v6csp673911ivl;
+        Tue, 5 Jun 2018 02:09:45 -0700 (PDT)
+X-Google-Smtp-Source: ADUXVKIcnDP537Hxd14/kOTZEY54sL0ydbj5/EqEtQIryXLalI/QODgs5bG7UORvNXBSHHAHTnFH
+X-Received: by 2002:a1c:3789:: with SMTP id e131-v6mr7512937wma.20.1528189785771;
+        Tue, 05 Jun 2018 02:09:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1528189785; cv=none;
+        d=google.com; s=arc-20160816;
+        b=v9IJQol70ftWFwpd5edruTZWGvHOjzG1CMs1vAPveezKJVzsEhMAQ8G8n86/f9Unh7
+         iyUS0jt/7bzFINpMBa/jqSVEG+qKX3YS/jgE51aYcU4NvgpW67fUtFyg1xmV0xc6UrZM
+         bbdlTTtxpPLyMUqvaZNaZwBEH89X9OztXaJWkjUKIztmhC6ALXjb1Yg3lVcIj0dnCtet
+         s5bDVV99+vhZk75fRbXOyNZS54i2DXBnwN3zdkJEIHBpGhFvlMGtPaTegBNGxtNOZAtn
+         E7YUegVNC3xgGS1bzIGFbThfhzci1hYgquc3+AAEvW2IRecmJlDgYY8fwNfYg6kZnd2L
+         yErw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:precedence:list-unsubscribe:list-id:date:subject:to
+         :from:mime-version:message-id:dkim-signature:dkim-signature
+         :arc-authentication-results;
+        bh=V7VJxpNGDYqJUlN1OThoXVtT5ihdE9CxAKYwDYhVWd4=;
+        b=TxYRedc0jgurj/I0jfXhFz7BO47UCG7FmqS5XTYvrshMRWf2ivg8OuhmlTUE1KqDi7
+         pXWJ69fkE3kyToeHs7d48zXroF7PagfAfs3NFJDZhO/GRwqV91l0WSLLfs+qoEE3XDdS
+         q5tfvkcMvlR6iTXFzRKqbIrdIZG9RW+C6UVH3ClaeanzRjha7YNDQ5MhdLHq+A0+89HW
+         9WF/xbpv6/X5wSr0HNhV8exFCQrVv+NsF8kpzsMHQiXSzhTHLUP8knhd4PsPvzs/ZNQs
+         eII7/zNLjWElwP2BvXHZR0sOd3Yhb3LM+LO/3L3rHGqbW3sd4wdjBakallAVDDNHW81A
+         /ADQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@ovh.com header.s=mailjet header.b=hqeF+XHL;
+       dkim=pass header.i=@bnc3.mailjet.com header.s=mailjet header.b=Qjn+xj10;
+       spf=pass (google.com: domain of 95f5095a.aaaaaaout3qaarzrz1waaflstfuaapidvlwafijiaavmlqbbfk5p@bnc3.mailjet.com designates 37.59.69.148 as permitted sender) smtp.mailfrom=95f5095a.AAAAAAOut3QAARZrz1wAAFlstfUAAPiDvlwAFijIAAVMlQBbFk5p@bnc3.mailjet.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ovh.com
+Return-Path: <95f5095a.AAAAAAOut3QAARZrz1wAAFlstfUAAPiDvlwAFijIAAVMlQBbFk5p@bnc3.mailjet.com>
+Received: from o21.p5.mailjet.com (o21.p5.mailjet.com. [37.59.69.148])
+        by mx.google.com with ESMTPS id p23-v6si858075wmh.49.2018.06.05.02.09.45
+        for <turner.ugo@gmail.com>
+        (version=TLS1 cipher=AES128-SHA bits=128/128);
+        Tue, 05 Jun 2018 02:09:45 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 95f5095a.aaaaaaout3qaarzrz1waaflstfuaapidvlwafijiaavmlqbbfk5p@bnc3.mailjet.com designates 37.59.69.148 as permitted sender) client-ip=37.59.69.148;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@ovh.com header.s=mailjet header.b=hqeF+XHL;
+       dkim=pass header.i=@bnc3.mailjet.com header.s=mailjet header.b=Qjn+xj10;
+       spf=pass (google.com: domain of 95f5095a.aaaaaaout3qaarzrz1waaflstfuaapidvlwafijiaavmlqbbfk5p@bnc3.mailjet.com designates 37.59.69.148 as permitted sender) smtp.mailfrom=95f5095a.AAAAAAOut3QAARZrz1wAAFlstfUAAPiDvlwAFijIAAVMlQBbFk5p@bnc3.mailjet.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ovh.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; q=dns/txt;
+  d=ovh.com; i=noreply@ovh.com; s=mailjet;
+  h=message-id:mime-version:from:to:subject:date:list-id:list-unsubscribe:
+  precedence:x-csa-complaints:x-mj-mid:x-mj-mimemessagestructure:x-report-abuse-to:
+  feedback-id:content-type;
+  bh=smkegJ7TpWcvkgoG7whcti29EDJvNK3aEpDr818BIq4=;
+  b=hqeF+XHL3xesEiVcKx5ogqWhc6G6j/zleCIxlArEors7pdCrX21SfkuNI
+ +GGsALA+Cn1Ou7f0aPQ1Zhzp6oktMD0sFXDdQSlNbAuooTLd+qFXw4kNEGQZ
+ QfuaLYP6BBePP92n8b+hWogbUZxrSO9bJsqxm2yztMkrXj0L4lF+80=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; q=dns/txt;
+  d=bnc3.mailjet.com; s=mailjet;
+  h=message-id:mime-version:from:to:subject:date:list-id:list-unsubscribe:
+  precedence:x-csa-complaints:x-mj-mid:x-mj-mimemessagestructure:x-report-abuse-to:
+  feedback-id:content-type;
+  bh=smkegJ7TpWcvkgoG7whcti29EDJvNK3aEpDr818BIq4=;
+  b=Qjn+xj10fZDhRKIk92xdwYUE7uz2SC0XqIDSj3QGM6k3Ddasnz8SpdA1h
+ tq1+JOaRkPcLQ708gtygRDBLTJXsfQrLYD2ay8PAesQW8axhlwhsEAbfVPeZ
+ oRZyvbFQNu9RpcCdxbcZBxIAfGL+2u7GAHwVa30d8aSJiBXCttqvWo=
+Message-Id: <95f5095a.AAAAAAOut3QAARZrz1wAAFlstfUAAPiDvlwAFijIAAVMlQBbFk5p@mailjet.com>
+MIME-Version: 1.0
+From: OVH <noreply@ovh.com>
+To: turner.ugo@gmail.com
+Subject: =?UTF-8?Q?=5BDonn=C3=A9es_personnelles=5D_?=
+ =?UTF-8?Q?Nouvelles_concernant_vos_noms_de_?= =?UTF-8?Q?domaine?=
+Date: Tue, 5 Jun 2018 08:48:41 +0000
+List-Id: <noreply.ovh.com.5r7l-xnngk.mj>
+List-Unsubscribe: <mailto:unsub-95f5095a.5r7l.0vpmt7@bnc3.mailjet.com>
+Precedence: bulk
+X-CSA-Complaints: whitelist-complaints@eco.de
+X-MJ-Mid:
+	AAAAAAOut3QAARZrz1wAAFlstfUAAPiDvlwAFijIAAVMlQBbFk5pwfsBzNHMTf2PZeoYRqrYHwABHT4
+X-MJ-MIMEMessageStructure: no-related
+X-REPORT-ABUSE-TO: Message sent by Mailjet please report to
+	abuse@mailjet.com with a copy of the message
+Feedback-Id: 73022.347285:MJ
+Content-Type: multipart/alternative; boundary="=-HvCV5j633GIaP3wE8vFV"
+
+--=-HvCV5j633GIaP3wE8vFV
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+D=C3=A9couvrez ce qui va changer...
+
+Voir la version en ligne [http://mj.ovh.com/nl2/5r7l/12on2.html?m=3DAAAAAAO=
+ut3QAARZrz1wAAFlstfUAAPiDvlwAFijIAAVMlQBbFk5pwfsBzNHMTf2PZeoYRqrYHwABHT4&b=
+=3D95f5095a&e=3Df74a4ad1&x=3DDtOyj4xzFshHKHhPkUa7ds-9D-CrMs68WugspFKd04Q]
+
+
+
+[https://www.ovh.com/fr/#xtor=3DES-11-[GDPRdomain]-20180605-[logo]]
+
+
+
+
+
+Ch=C3=A8re cliente, cher client,
+=C3=80 la suite de la mise en application du R=C3=A8glement g=C3=A9n=C3=A9r=
+al sur la protection des donn=C3=A9es (RGPD) le 25=C2=A0mai dernier, d=C3=
+=A9couvrez les modifications concernant le Whois  de vos noms de domaine=C2=
+=A0:
+
+
+
+Pour les extensions g=C3=A9n=C3=A9riques (.com, .net, .info, etc.)
+
+Toutes vos informations personnelles seront masqu=C3=A9es dans le Whois.
+
+
+
+Pour les extensions g=C3=A9ographiques (.fr, .eu, .be, etc.)
+
+Nous sommes en contact avec les registres de chaque domaine de premier nive=
+au national (ccTLD) pour v=C3=A9rifier leur mise en conformit=C3=A9 au RGPD=
+.
+
+Le masquage de toutes vos informations personnelles est d=C3=A9j=C3=A0 effe=
+ctif pour la plupart des extensions europ=C3=A9ennes, comme les .fr, .be et=
+ .eu.
+
+
+
+Votre adresse e-mail
+
+Celle-ci sera masqu=C3=A9e.
+
+Selon l'extension, vous pourrez =C3=AAtre contact=C3=A9 de deux fa=C3=A7ons=
+ :
+
+ * via une adresse de redirection vers votre adresse e-mail=C2=A0;
+ * via un formulaire de contact, g=C3=A9r=C3=A9 par le registre de l'extens=
+ion.
+
+
+
+Il est important de noter que la proc=C3=A9dure de transfert  des noms de d=
+omaine change =C3=A9galement. Le code d'authentification (authInfo) fait fo=
+i, contrairement au FOA (proc=C3=A9dure de validation par e-mail) qui, lui,=
+ devient facultatif.
+
+L=E2=80=99administrateur de vos noms de domaine (si ce n'est pas vous) doit=
+ =C3=AAtre vigilant, carle propri=C3=A9taire ne sera pas averti du transfer=
+t  si son adresse e-mail ou de redirection n'est pas accessible dans le Who=
+is.
+
+Pour obtenir davantage d'informations, nous vous invitons =C3=A0 lire l=E2=
+=80=99article suivant=C2=A0:
+
+=C3=80 vos marques, pr=C3=AAts, RGPD ! (Part 1 : noms de domaine)
+
+Nous vous remercions pour la confiance que vous accordez =C3=A0 OVH et rest=
+ons =C3=A0 votre disposition.
+L'=C3=A9quipe Noms de domaine OVH
+
+
+
+[http://mj.ovh.com/tplimg/5r7l/b/jvl/pnli.png] [https://community.ovh.com/]
+ [http://mj.ovh.com/tplimg/5r7l/b/jvl/pnlh.png] [https://www.instagram.com/=
+ovhcom/]
+ [http://mj.ovh.com/tplimg/5r7l/b/jvl/pnlk.png] [https://twitter.com/ovh_fr=
+]
+ [http://mj.ovh.com/tplimg/5r7l/b/jvl/pnln.png] [https://www.ovh.com/fr/rss=
+.xml]
+ [http://mj.ovh.com/tplimg/5r7l/b/jvl/pnlj.png] [https://www.youtube.com/ov=
+h]
+1999-2018 OVH.com =C2=A0 Mentions l=C3=A9gales  =C2=A0=C2=A0 =C3=80 propos =
+ =C2=A0=C2=A0 Contact  =C2=A0=C2=A0 Espace client [https://www.ovh.com/mana=
+ger//web/login/]
+
+
+
+Cet email a =C3=A9t=C3=A9 envoy=C3=A9 =C3=A0 turner.ugo@gmail.com, cliquez =
+ici pour vous d=C3=A9sabonner [[[UNSUB_LINK_FR]]].=
+
+--=-HvCV5j633GIaP3wE8vFV
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html>
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-microso=
+ft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+<head>
+  <title>[Donn=C3=A9es personnelles] Nouvelles concernant vos noms de domai=
+ne</title>
+  <!--[if !mso]><!-- -->
+  <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+  <!--<![endif]-->
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1.=
+0">
+<style type=3D"text/css">
+  #outlook a { padding: 0; }
+  .ReadMsgBody { width: 100%; }
+  .ExternalClass { width: 100%; }
+  .ExternalClass * { line-height:100%; }
+  body { margin: 0; padding: 0; -webkit-text-size-adjust: 100%; -ms-text-si=
+ze-adjust: 100%; }
+  table, td { border-collapse:collapse; mso-table-lspace: 0pt; mso-table-rs=
+pace: 0pt; }
+  img { border: 0; height: auto; line-height: 100%; outline: none; text-dec=
+oration: none; -ms-interpolation-mode: bicubic; }
+  p { display: block; margin: 13px 0; }
+</style>
+<!--[if !mso]><!-->
+<style type=3D"text/css">
+  @media only screen and (max-width:480px) {
+    @-ms-viewport { width:320px; }
+    @viewport { width:320px; }
+  }
+</style>
+<!--<![endif]-->
+<!--[if mso]>
+<xml>
+  <o:OfficeDocumentSettings>
+    <o:AllowPNG/>
+    <o:PixelsPerInch>96</o:PixelsPerInch>
+  </o:OfficeDocumentSettings>
+</xml>
+<![endif]-->
+<!--[if lte mso 11]>
+<style type=3D"text/css">
+  .outlook-group-fix {
+    width:100% !important;
+  }
+</style>
+<![endif]-->
+<style type=3D"text/css">
+  @media only screen and (min-width:480px) {
+    .mj-column-per-66 { width:66.66666666666666%!important; }
+.mj-column-per-33 { width:33.33333333333333%!important; }
+.mj-column-per-50 { width:50%!important; }
+.mj-column-per-100 { width:100%!important; }
+.mj-column-per-33 { width:33%!important; }
+.mj-column-per-66 { width:66%!important; }
+  }
+</style>
+</head>
+<body style=3D"background: #d6dde5;">
+ =20
+  <div class=3D"mj-container" style=3D"background-color:#d6dde5;"><!--[if m=
+so | IE]>
+      <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" width=3D"600" align=3D"center" style=3D"width:600px;">
+        <tr>
+          <td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:e=
+xactly;">
+      <![endif]--><table role=3D"presentation" cellpadding=3D"0" cellspacin=
+g=3D"0" style=3D"font-size:0px;width:100%;" border=3D"0"><tbody><tr><td><di=
+v style=3D"margin:0px auto;max-width:600px;"><table role=3D"presentation" c=
+ellpadding=3D"0" cellspacing=3D"0" style=3D"font-size:0px;width:100%;" alig=
+n=3D"center" border=3D"0"><tbody><tr><td style=3D"text-align:center;vertica=
+l-align:top;direction:ltr;font-size:0px;padding:20px 0px 20px 0px;padding-b=
+ottom:20px;padding-top:20px;"><!--[if mso | IE]>
+      <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0">
+        <tr>
+          <td style=3D"vertical-align:middle;width:396px;">
+      <![endif]--><div class=3D"mj-column-per-66 outlook-group-fix" style=
+=3D"vertical-align:middle;display:inline-block;direction:ltr;font-size:13px=
+;text-align:left;width:100%;"><table role=3D"presentation" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"vertical-align:middle;" width=3D"100%" border=
+=3D"0"><tbody><tr><td style=3D"word-wrap:break-word;font-size:0px;padding:0=
+px 25px 0px 25px;padding-top:0px;padding-bottom:0px;padding-right:25px;padd=
+ing-left:25px;" align=3D"left"><div style=3D"cursor:auto;color:#000000;font=
+-family:Arial, sans-serif;font-size:11px;line-height:normal;text-align:left=
+;"><p style=3D"font-size: 13px; color: #122844; margin: 10px 0;"><span styl=
+e=3D"font-size:10px">D=C3=A9couvrez ce qui va changer...</span></p></div></=
+td></tr></tbody></table></div><!--[if mso | IE]>
+      </td><td style=3D"vertical-align:middle;width:198px;">
+      <![endif]--><div class=3D"mj-column-per-33 outlook-group-fix" style=
+=3D"vertical-align:middle;display:inline-block;direction:ltr;font-size:13px=
+;text-align:left;width:100%;"><table role=3D"presentation" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"vertical-align:middle;" width=3D"100%" border=
+=3D"0"><tbody><tr><td style=3D"word-wrap:break-word;font-size:0px;padding:0=
+px 25px 0px 25px;padding-top:0px;padding-bottom:0px;padding-right:25px;padd=
+ing-left:25px;" align=3D"right"><div style=3D"cursor:auto;color:#000000;fon=
+t-family:Arial, sans-serif;font-size:11px;line-height:normal;text-align:rig=
+ht;"><p style=3D"font-size: 13px; color: #122844; margin: 10px 0;"><a href=
+=3D"http://mj.ovh.com/lnk/AAAAAAOut3QAARZrz1wAAFlstfUAAPiDvlwAFijIAAVMlQBbF=
+k5pwfsBzNHMTf2PZeoYRqrYHwABHT4/1/39EdFl4o5hY_pWPHHLhi0g/aHR0cDovL21qLm92aC5=
+jb20vbmwyLzVyN2wvMTJvbjIuaHRtbD9tPUFBQUFBQU91dDNRQUFSWnJ6MXdBQUZsc3RmVUFBUG=
+lEdmx3QUZpaklBQVZNbFFCYkZrNXB3ZnNCek5ITVRmMlBaZW9ZUnFyWUh3QUJIVDQmYj05NWY1M=
+Dk1YSZlPWY3NGE0YWQxJng9RHRPeWo0eHpGc2hIS0hoUGtVYTdkcy05RC1Dck1zNjhXdWdzcEZL=
+ZDA0UQ" style=3D"color:inherit;text-decoration:none;" target=3D"_blank">Voi=
+r la version en ligne</a></p></div></td></tr></tbody></table></div><!--[if =
+mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div></td></tr></tbody></table=
+><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]-->
+      <!--[if mso | IE]>
+      <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" width=3D"600" align=3D"center" style=3D"width:600px;">
+        <tr>
+          <td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:e=
+xactly;">
+      <![endif]--><div style=3D"margin:0px auto;max-width:600px;background:=
+#FFFFFF;"><table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" =
+style=3D"font-size:0px;width:100%;background:#FFFFFF;" align=3D"center" bor=
+der=3D"0"><tbody><tr><td style=3D"text-align:center;vertical-align:top;dire=
+ction:ltr;font-size:0px;padding:10px 0px 0px 0px;padding-bottom:0px;padding=
+-top:10px;"><!--[if mso | IE]>
+      <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0">
+        <tr>
+          <td style=3D"vertical-align:top;width:300px;">
+      <![endif]--><div class=3D"mj-column-per-50 outlook-group-fix" style=
+=3D"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;te=
+xt-align:left;width:100%;"><table role=3D"presentation" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"vertical-align:top;" width=3D"100%" border=3D"0">=
+<tbody><tr><td style=3D"word-wrap:break-word;font-size:0px;padding:10px 25p=
+x 10px 25px;padding-top:10px;padding-bottom:10px;padding-right:25px;padding=
+-left:25px;" align=3D"center"><table role=3D"presentation" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"border-collapse:collapse;border-spacing:0px;" =
+align=3D"center" border=3D"0"><tbody><tr><td style=3D"width:250px;"><a href=
+=3D"http://mj.ovh.com/lnk/AAAAAAOut3QAARZrz1wAAFlstfUAAPiDvlwAFijIAAVMlQBbF=
+k5pwfsBzNHMTf2PZeoYRqrYHwABHT4/2/7W9tWs-nZ_XwOxMbfEDdtQ/aHR0cHM6Ly93d3cub3Z=
+oLmNvbS9mci8jeHRvcj1FUy0xMS1bR0RQUmRvbWFpbl0tMjAxODA2MDUtW2xvZ29d#xtor=3DES=
+-11-[GDPRdomain]-20180605-[logo]" target=3D"_blank"><img alt=3D"" title=3D"=
+" height=3D"auto" src=3D"http://mj.ovh.com/img/5r7l/b/123yl/pvqr.jpeg" styl=
+e=3D"border:none;border-radius:0px;display:block;font-size:13px;outline:non=
+e;text-decoration:none;width:100%;height:auto;" width=3D"250"></a></td></tr=
+></tbody></table></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td><td style=3D"vertical-align:top;width:300px;">
+      <![endif]--><div class=3D"mj-column-per-50 outlook-group-fix" style=
+=3D"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;te=
+xt-align:left;width:100%;"><table role=3D"presentation" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"vertical-align:top;" width=3D"100%" border=3D"0">=
+<tbody></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]-->
+      <!--[if mso | IE]>
+      <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" width=3D"600" align=3D"center" style=3D"width:600px;">
+        <tr>
+          <td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:e=
+xactly;">
+      <![endif]--><div style=3D"margin:0px auto;max-width:600px;background:=
+#FFFFFF;"><table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" =
+style=3D"font-size:0px;width:100%;background:#FFFFFF;" align=3D"center" bor=
+der=3D"0"><tbody><tr><td style=3D"text-align:center;vertical-align:top;dire=
+ction:ltr;font-size:0px;padding:20px 0px 20px 0px;padding-bottom:0px;paddin=
+g-top:20px;"><!--[if mso | IE]>
+      <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0">
+        <tr>
+          <td style=3D"vertical-align:top;width:600px;">
+      <![endif]--><div class=3D"mj-column-per-100 outlook-group-fix" style=
+=3D"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;te=
+xt-align:left;width:100%;"><table role=3D"presentation" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"vertical-align:top;" width=3D"100%" border=3D"0">=
+<tbody><tr><td style=3D"word-wrap:break-word;font-size:0px;padding:10px 25p=
+x;padding-top:0px;padding-bottom:0px;" align=3D"left"><div style=3D"cursor:=
+auto;color:#000000;font-family:Arial, sans-serif;font-size:13px;line-height=
+:22px;text-align:left;"><p style=3D"font-size: 13px; color: #122844; line-h=
+eight: 20px; margin: 10px 0; text-align: justify;"><span style=3D"font-size=
+:14px"><span style=3D"font-family:Arial,sans-serif"><span style=3D"color:#3=
+33333"><span style=3D"color:#0c3c4a">Ch=C3=A8re cliente, cher client,</span=
+></span></span></span></p></div></td></tr><tr><td style=3D"word-wrap:break-=
+word;font-size:0px;padding:10px 25px;padding-top:0px;padding-bottom:5px;" a=
+lign=3D"left"><div style=3D"cursor:auto;color:#000000;font-family:Arial, sa=
+ns-serif;font-size:13px;line-height:24px;text-align:left;"><p style=3D"font=
+-size: 13px; color: #122844; margin: 10px 0;">=C3=80 la suite de la mise en=
+ application du R=C3=A8glement g=C3=A9n=C3=A9ral sur la protection des donn=
+=C3=A9es (RGPD) le 25=C2=A0mai dernier, d=C3=A9couvrez <b>les modifications=
+ concernant le Whois</b> de vos noms de domaine=C2=A0:</p></div></td></tr><=
+/tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]-->
+      <!--[if mso | IE]>
+      <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" width=3D"600" align=3D"center" style=3D"width:600px;">
+        <tr>
+          <td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:e=
+xactly;">
+      <![endif]--><div style=3D"margin:0px auto;max-width:600px;background:=
+#F2F2F2;"><table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" =
+style=3D"font-size:0px;width:100%;background:#F2F2F2;" align=3D"center" bor=
+der=3D"0"><tbody><tr><td style=3D"text-align:center;vertical-align:top;dire=
+ction:ltr;font-size:0px;padding:20px 0px;padding-bottom:0px;padding-top:10p=
+x;"><!--[if mso | IE]>
+      <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0">
+        <tr>
+          <td style=3D"vertical-align:top;width:198px;">
+      <![endif]--><div class=3D"mj-column-per-33 outlook-group-fix" style=
+=3D"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;te=
+xt-align:left;width:100%;"><table role=3D"presentation" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%" border=3D"0"><tbody><tr><td style=3D"word-w=
+rap:break-word;background:#F2F2F2;font-size:0px;padding:10px 25px;padding-t=
+op:0px;padding-bottom:0px;" align=3D"left" background=3D"#F2F2F2"><div styl=
+e=3D"cursor:auto;color:#000000;font-family:Arial, sans-serif;font-size:13px=
+;line-height:24px;text-align:left;"><p style=3D"font-size: 13px; color: #12=
+2844; margin: 10px 0;"><b>Pour les extensions g=C3=A9n=C3=A9riques </b>(.co=
+m, .net, .info, etc.)</p></div></td></tr></tbody></table></div><!--[if mso =
+| IE]>
+      </td><td style=3D"vertical-align:top;width:396px;">
+      <![endif]--><div class=3D"mj-column-per-66 outlook-group-fix" style=
+=3D"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;te=
+xt-align:left;width:100%;"><table role=3D"presentation" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%" border=3D"0"><tbody><tr><td style=3D"word-w=
+rap:break-word;background:#F2F2F2;font-size:0px;padding:10px 25px;padding-t=
+op:0px;padding-bottom:0px;" align=3D"left" background=3D"#F2F2F2"><div styl=
+e=3D"cursor:auto;color:#000000;font-family:Arial, sans-serif;font-size:13px=
+;line-height:24px;text-align:left;"><p style=3D"font-size: 13px; color: #12=
+2844; line-height: 16px; margin: 10px 0;">Toutes vos informations personnel=
+les seront masqu=C3=A9es dans le Whois.</p></div></td></tr></tbody></table>=
+</div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]-->
+      <!--[if mso | IE]>
+      <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" width=3D"600" align=3D"center" style=3D"width:600px;">
+        <tr>
+          <td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:e=
+xactly;">
+      <![endif]--><div style=3D"margin:0px auto;max-width:600px;background:=
+#F2F2F2;"><table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" =
+style=3D"font-size:0px;width:100%;background:#F2F2F2;" align=3D"center" bor=
+der=3D"0"><tbody><tr><td style=3D"text-align:center;vertical-align:top;dire=
+ction:ltr;font-size:0px;padding:20px 0px;padding-bottom:0px;padding-top:10p=
+x;"><!--[if mso | IE]>
+      <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0">
+        <tr>
+          <td style=3D"vertical-align:top;width:198px;">
+      <![endif]--><div class=3D"mj-column-per-33 outlook-group-fix" style=
+=3D"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;te=
+xt-align:left;width:100%;"><table role=3D"presentation" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%" border=3D"0"><tbody><tr><td style=3D"word-w=
+rap:break-word;background:#F2F2F2;font-size:0px;padding:10px 25px;padding-t=
+op:0px;padding-bottom:0px;" align=3D"left" background=3D"#F2F2F2"><div styl=
+e=3D"cursor:auto;color:#000000;font-family:Arial, sans-serif;font-size:13px=
+;line-height:24px;text-align:left;"><p style=3D"font-size: 13px; color: #12=
+2844; margin: 10px 0;"><b>Pour les extensions g=C3=A9ographiques </b>(.fr, =
+.eu, .be, etc.)</p></div></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td><td style=3D"vertical-align:top;width:396px;">
+      <![endif]--><div class=3D"mj-column-per-66 outlook-group-fix" style=
+=3D"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;te=
+xt-align:left;width:100%;"><table role=3D"presentation" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%" border=3D"0"><tbody><tr><td style=3D"word-w=
+rap:break-word;background:#F2F2F2;font-size:0px;padding:10px 25px;padding-t=
+op:0px;padding-bottom:0px;" align=3D"left" background=3D"#F2F2F2"><div styl=
+e=3D"cursor:auto;color:#000000;font-family:Arial, sans-serif;font-size:13px=
+;line-height:24px;text-align:left;"><p style=3D"font-size: 13px; color: #12=
+2844; margin: 10px 0;">Nous sommes en contact avec les registres de chaque =
+domaine de premier niveau national (ccTLD) pour v=C3=A9rifier leur mise en =
+conformit=C3=A9 au RGPD.</p><p style=3D"font-size: 13px; color: #122844; ma=
+rgin: 10px 0;">Le masquage de toutes vos informations personnelles est d=C3=
+=A9j=C3=A0 effectif pour la plupart des extensions europ=C3=A9ennes, comme =
+les .fr, .be et .eu.</p></div></td></tr></tbody></table></div><!--[if mso |=
+ IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]-->
+      <!--[if mso | IE]>
+      <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" width=3D"600" align=3D"center" style=3D"width:600px;">
+        <tr>
+          <td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:e=
+xactly;">
+      <![endif]--><div style=3D"margin:0px auto;max-width:600px;background:=
+#F2F2F2;"><table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" =
+style=3D"font-size:0px;width:100%;background:#F2F2F2;" align=3D"center" bor=
+der=3D"0"><tbody><tr><td style=3D"text-align:center;vertical-align:top;dire=
+ction:ltr;font-size:0px;padding:20px 0px;padding-bottom:10px;padding-top:10=
+px;"><!--[if mso | IE]>
+      <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0">
+        <tr>
+          <td style=3D"vertical-align:top;width:198px;">
+      <![endif]--><div class=3D"mj-column-per-33 outlook-group-fix" style=
+=3D"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;te=
+xt-align:left;width:100%;"><table role=3D"presentation" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%" border=3D"0"><tbody><tr><td style=3D"word-w=
+rap:break-word;background:#F2F2F2;font-size:0px;padding:10px 25px;padding-t=
+op:0px;padding-bottom:0px;" align=3D"left" background=3D"#F2F2F2"><div styl=
+e=3D"cursor:auto;color:#000000;font-family:Arial, sans-serif;font-size:13px=
+;line-height:24px;text-align:left;"><p style=3D"font-size: 13px; color: #12=
+2844; margin: 10px 0;"><b>Votre adresse e-mail</b></p></div></td></tr></tbo=
+dy></table></div><!--[if mso | IE]>
+      </td><td style=3D"vertical-align:top;width:396px;">
+      <![endif]--><div class=3D"mj-column-per-66 outlook-group-fix" style=
+=3D"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;te=
+xt-align:left;width:100%;"><table role=3D"presentation" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%" border=3D"0"><tbody><tr><td style=3D"word-w=
+rap:break-word;background:#F2F2F2;font-size:0px;padding:10px 25px;padding-t=
+op:0px;padding-bottom:0px;" align=3D"left" background=3D"#F2F2F2"><div styl=
+e=3D"cursor:auto;color:#000000;font-family:Arial, sans-serif;font-size:13px=
+;line-height:24px;text-align:left;"><p style=3D"font-size: 13px; color: #12=
+2844; margin: 10px 0;">Celle-ci sera masqu=C3=A9e.</p><p style=3D"font-size=
+: 13px; color: #122844; margin: 10px 0;">Selon l'extension, vous pourrez =
+=C3=AAtre contact=C3=A9 de deux fa=C3=A7ons :</p><ul><li><span style=3D"col=
+or:#122844">via une adresse de redirection vers votre adresse e-mail=C2=A0;=
+</span></li><li><span style=3D"color:#122844">via un formulaire de contact,=
+ g=C3=A9r=C3=A9 par le registre de l'extension.</span></li></ul></div></td>=
+</tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]-->
+      <!--[if mso | IE]>
+      <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" width=3D"600" align=3D"center" style=3D"width:600px;">
+        <tr>
+          <td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:e=
+xactly;">
+      <![endif]--><div style=3D"margin:0px auto;max-width:600px;background:=
+#ffffff;"><table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" =
+style=3D"font-size:0px;width:100%;background:#ffffff;" align=3D"center" bor=
+der=3D"0"><tbody><tr><td style=3D"text-align:center;vertical-align:top;dire=
+ction:ltr;font-size:0px;padding:20px 0px;padding-bottom:20px;padding-top:0p=
+x;"><!--[if mso | IE]>
+      <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0">
+        <tr>
+          <td style=3D"vertical-align:top;width:600px;">
+      <![endif]--><div class=3D"mj-column-per-100 outlook-group-fix" style=
+=3D"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;te=
+xt-align:left;width:100%;"><table role=3D"presentation" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%" border=3D"0"><tbody><tr><td style=3D"word-w=
+rap:break-word;font-size:0px;padding:10px 25px;padding-top:5px;padding-bott=
+om:10px;" align=3D"left"><div style=3D"cursor:auto;color:#000000;font-famil=
+y:Arial, sans-serif;font-size:13px;line-height:24px;text-align:left;"><p st=
+yle=3D"font-size: 13px; color: #122844; margin: 10px 0;">Il est important d=
+e noter que <b>la proc=C3=A9dure de transfert</b> des noms de domaine chang=
+e =C3=A9galement. Le code d'authentification (authInfo) fait foi, contraire=
+ment au FOA (proc=C3=A9dure de validation par e-mail) qui, lui, devient fac=
+ultatif.</p><p style=3D"font-size: 13px; color: #122844; margin: 10px 0;">L=
+=E2=80=99administrateur de vos noms de domaine (si ce n'est pas vous) doit =
+=C3=AAtre vigilant, car=C2=A0<b>le propri=C3=A9taire ne sera pas averti du =
+transfert</b> si son adresse e-mail ou de redirection n'est pas accessible =
+dans le Whois.</p><p style=3D"font-size: 13px; color: #122844; margin: 10px=
+ 0;">Pour obtenir davantage d'informations, nous vous invitons =C3=A0 lire =
+l=E2=80=99article suivant=C2=A0:</p><p style=3D"font-size: 13px; color: #12=
+2844; margin: 10px 0; text-align: center;"><a target=3D"_blank" href=3D"htt=
+p://mj.ovh.com/lnk/AAAAAAOut3QAARZrz1wAAFlstfUAAPiDvlwAFijIAAVMlQBbFk5pwfsB=
+zNHMTf2PZeoYRqrYHwABHT4/3/P42lANr-wVJckr6xtIPPYA/aHR0cHM6Ly93d3cub3ZoLmNvbS=
+9mci9ibG9nL2Etdm9zLW1hcnF1ZXMtcHJldHMtcmdwZC8jeHRvcj1FUy0xMS1bR0RQUmRvbWFpb=
+l0tMjAxODA2MDUtW2FydGljbGUubGlua10#xtor=3DES-11-[GDPRdomain]-20180605-[arti=
+cle.link]"><b>=C3=80 vos marques, pr=C3=AAts, RGPD ! (Part 1 : noms de doma=
+ine)</b></a></p><p style=3D"font-size: 13px; color: #122844; margin: 10px 0=
+; text-align: left;">Nous vous remercions pour la confiance que vous accord=
+ez =C3=A0 OVH et restons =C3=A0 votre disposition.</p></div></td></tr><tr><=
+td style=3D"word-wrap:break-word;font-size:0px;padding:10px 25px;padding-to=
+p:0px;padding-bottom:0px;" align=3D"left"><div style=3D"cursor:auto;color:#=
+000000;font-family:Arial, sans-serif;font-size:13px;line-height:24px;text-a=
+lign:left;"><p style=3D"font-size: 13px; color: #122844; line-height: 21px;=
+ margin: 10px 0;"><b>L'=C3=A9quipe Noms de domaine OVH</b></p></div></td></=
+tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]-->
+      <!--[if mso | IE]>
+      <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" width=3D"600" align=3D"center" style=3D"width:600px;">
+        <tr>
+          <td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:e=
+xactly;">
+      <![endif]--><div style=3D"margin:0px auto;max-width:600px;background:=
+#153f6c;"><table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" =
+style=3D"font-size:0px;width:100%;background:#153f6c;" align=3D"center" bor=
+der=3D"0"><tbody><tr><td style=3D"text-align:center;vertical-align:top;dire=
+ction:ltr;font-size:0px;padding:20px 0px 10px 0px;padding-bottom:10px;paddi=
+ng-top:20px;"><!--[if mso | IE]>
+      <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0">
+        <tr>
+          <td style=3D"vertical-align:top;width:600px;">
+      <![endif]--><div class=3D"mj-column-per-100 outlook-group-fix" style=
+=3D"vertical-align:top;display:inline-block;direction:ltr;font-size:13px;te=
+xt-align:left;width:100%;"><table role=3D"presentation" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"vertical-align:top;" width=3D"100%" border=3D"0">=
+<tbody><tr><td style=3D"word-wrap:break-word;font-size:0px;padding:0px;"><d=
+iv style=3D"font-size:13px;"><div style=3D"width: 80%; max-width: 300px; he=
+ight: 60px; margin: 0 auto; text-align: center;">
+  <a href=3D"http://mj.ovh.com/lnk/AAAAAAOut3QAARZrz1wAAFlstfUAAPiDvlwAFijI=
+AAVMlQBbFk5pwfsBzNHMTf2PZeoYRqrYHwABHT4/4/P1cNBNpZ1dWSkqCJWIuglg/aHR0cHM6Ly=
+9jb21tdW5pdHkub3ZoLmNvbS8" target=3D"_blank"><img src=3D"http://mj.ovh.com/=
+tplimg/5r7l/b/jvl/pnli.png" style=3D"width: 15%; max-width:60px;"></a>
+  <a href=3D"http://mj.ovh.com/lnk/AAAAAAOut3QAARZrz1wAAFlstfUAAPiDvlwAFijI=
+AAVMlQBbFk5pwfsBzNHMTf2PZeoYRqrYHwABHT4/5/f_XeGM1FfzNAto1_W8bm3w/aHR0cHM6Ly=
+93d3cuaW5zdGFncmFtLmNvbS9vdmhjb20v" target=3D"_blank"><img src=3D"http://mj=
+.ovh.com/tplimg/5r7l/b/jvl/pnlh.png" style=3D"width: 15%; max-width:60px;">=
+</a>
+  <a href=3D"http://mj.ovh.com/lnk/AAAAAAOut3QAARZrz1wAAFlstfUAAPiDvlwAFijI=
+AAVMlQBbFk5pwfsBzNHMTf2PZeoYRqrYHwABHT4/6/1sFlYvYFdH9e-bW666MFGQ/aHR0cHM6Ly=
+90d2l0dGVyLmNvbS9vdmhfZnI" target=3D"_blank"><img src=3D"http://mj.ovh.com/=
+tplimg/5r7l/b/jvl/pnlk.png" style=3D"width: 15%; max-width:60px;"></a>
+  <a href=3D"http://mj.ovh.com/lnk/AAAAAAOut3QAARZrz1wAAFlstfUAAPiDvlwAFijI=
+AAVMlQBbFk5pwfsBzNHMTf2PZeoYRqrYHwABHT4/7/QDslGQOEJxoMINV0oIaLUw/aHR0cHM6Ly=
+93d3cub3ZoLmNvbS9mci9yc3MueG1s" target=3D"_blank"><img src=3D"http://mj.ovh=
+.com/tplimg/5r7l/b/jvl/pnln.png" style=3D"width: 15%; max-width:60px;"></a>
+  <a href=3D"http://mj.ovh.com/lnk/AAAAAAOut3QAARZrz1wAAFlstfUAAPiDvlwAFijI=
+AAVMlQBbFk5pwfsBzNHMTf2PZeoYRqrYHwABHT4/8/YiZAmU0lnR_LW22mRm_p7Q/aHR0cHM6Ly=
+93d3cueW91dHViZS5jb20vb3Zo" target=3D"_blank"><img src=3D"http://mj.ovh.com=
+/tplimg/5r7l/b/jvl/pnlj.png" style=3D"width: 15%; max-width:60px;"></a>
+</div></div></td></tr><tr><td style=3D"word-wrap:break-word;font-size:0px;p=
+adding:10px 25px 10px 25px;padding-top:10px;padding-bottom:10px;padding-rig=
+ht:25px;padding-left:25px;" align=3D"center"><div style=3D"cursor:auto;colo=
+r:#000000;font-family:Arial, sans-serif;font-size:13px;line-height:22px;tex=
+t-align:center;"><p style=3D"font-size: 13px; color: #122844; margin: 10px =
+0;"><span style=3D"font-size:12px"><span style=3D"color:#ffffff">=C2=A01999=
+-2018 OVH.com =C2=A0 </span><a target=3D"_blank" style=3D"color:#ffffff" hr=
+ef=3D"http://mj.ovh.com/lnk/AAAAAAOut3QAARZrz1wAAFlstfUAAPiDvlwAFijIAAVMlQB=
+bFk5pwfsBzNHMTf2PZeoYRqrYHwABHT4/9/bwILf8R_vPxMPtei29k3rw/aHR0cHM6Ly93d3cub=
+3ZoLmNvbS9mci9zdXBwb3J0L2RvY3VtZW50c19sZWdhdXgvI3h0b3I9RVMtMTEtW0dEUFJkb21h=
+aW5dLTIwMTgwNjA1LVtmb290ZXIubGlua10#xtor=3DES-11-[GDPRdomain]-20180605-[foo=
+ter.link]"><span style=3D"color:#ffffff">Mentions l=C3=A9gales</span></a><s=
+pan style=3D"color:#ffffff"> =C2=A0=C2=A0 </span><a target=3D"_blank" style=
+=3D"color:#ffffff" href=3D"http://mj.ovh.com/lnk/AAAAAAOut3QAARZrz1wAAFlstf=
+UAAPiDvlwAFijIAAVMlQBbFk5pwfsBzNHMTf2PZeoYRqrYHwABHT4/10/ODSgk7vJQo7opCKhPa=
+khjQ/aHR0cHM6Ly93d3cub3ZoLmNvbS9mci9hcHJvcG9zLyN4dG9yPUVTLTExLVtHRFBSZG9tYW=
+luXS0yMDE4MDYwNS1bZm9vdGVyLmxpbmtd#xtor=3DES-11-[GDPRdomain]-20180605-[foot=
+er.link]"><span style=3D"color:#ffffff">=C3=80 propos</span></a><span style=
+=3D"color:#ffffff"> =C2=A0=C2=A0 </span><a target=3D"_blank" style=3D"color=
+:#ffffff" href=3D"http://mj.ovh.com/lnk/AAAAAAOut3QAARZrz1wAAFlstfUAAPiDvlw=
+AFijIAAVMlQBbFk5pwfsBzNHMTf2PZeoYRqrYHwABHT4/11/GMB21QB7Rdg6N9OqNDL0rw/aHR0=
+cHM6Ly93d3cub3ZoLmNvbS9mci9zdXBwb3J0LyN4dG9yPUVTLTExLVtHRFBSZG9tYWluXS0yMDE=
+4MDYwNS1bZm9vdGVyLmxpbmtd#xtor=3DES-11-[GDPRdomain]-20180605-[footer.link]"=
+><span style=3D"color:#ffffff">Contact</span></a><span style=3D"color:#ffff=
+ff"> =C2=A0=C2=A0 </span><a target=3D"_blank" style=3D"color:#ffffff" href=
+=3D"http://mj.ovh.com/lnk/AAAAAAOut3QAARZrz1wAAFlstfUAAPiDvlwAFijIAAVMlQBbF=
+k5pwfsBzNHMTf2PZeoYRqrYHwABHT4/12/CAtNMrKoNYHsElUbFBngRQ/aHR0cHM6Ly93d3cub3=
+ZoLmNvbS9tYW5hZ2VyLy93ZWIvbG9naW4v"><span style=3D"color:#ffffff">Espace cl=
+ient</span></a><span style=3D"color:#ffffff"> =C2=A0=C2=A0 </span></span></=
+p></div></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]-->
+      <!--[if mso | IE]>
+      <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" width=3D"600" align=3D"center" style=3D"width:600px;">
+        <tr>
+          <td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:e=
+xactly;">
+      <![endif]--><table role=3D"presentation" cellpadding=3D"0" cellspacin=
+g=3D"0" style=3D"font-size:0px;width:100%;" border=3D"0"><tbody><tr><td><di=
+v style=3D"margin:0px auto;max-width:600px;"><table role=3D"presentation" c=
+ellpadding=3D"0" cellspacing=3D"0" style=3D"font-size:0px;width:100%;" alig=
+n=3D"center" border=3D"0"><tbody><tr><td style=3D"text-align:center;vertica=
+l-align:top;direction:ltr;font-size:0px;padding:20px 0px 20px 0px;padding-b=
+ottom:20px;padding-top:0px;"><!--[if mso | IE]>
+      <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0">
+        <tr>
+          <td style=3D"vertical-align:middle;width:600px;">
+      <![endif]--><div class=3D"mj-column-per-100 outlook-group-fix" style=
+=3D"vertical-align:middle;display:inline-block;direction:ltr;font-size:13px=
+;text-align:left;width:100%;"><table role=3D"presentation" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"vertical-align:middle;" width=3D"100%" border=
+=3D"0"><tbody><tr><td style=3D"word-wrap:break-word;font-size:0px;padding:0=
+px 25px 0px 25px;padding-top:0px;padding-bottom:0px;padding-right:25px;padd=
+ing-left:25px;" align=3D"center"><div style=3D"cursor:auto;color:#000000;fo=
+nt-family:Arial, sans-serif;font-size:11px;line-height:normal;text-align:ce=
+nter;"><p style=3D"font-size: 13px; color: #122844; margin: 10px 0;">Cet em=
+ail a =C3=A9t=C3=A9 envoy=C3=A9 =C3=A0 turner.ugo@gmail.com, <a href=3D"htt=
+p://mj.ovh.com/unsub2?hl=3Dfr&amp;m=3DAAAAAAOut3QAARZrz1wAAFlstfUAAPiDvlwAF=
+ijIAAVMlQBbFk5pwfsBzNHMTf2PZeoYRqrYHwABHT4&amp;b=3D95f5095a&amp;e=3Df74a4ad=
+1&amp;x=3DDtOyj4xzFshHKHhPkUa7ds-9D-CrMs68WugspFKd04Q" style=3D"color:inher=
+it;text-decoration:none;" target=3D"_blank">cliquez ici pour vous d=C3=A9sa=
+bonner</a>.</p></div></td></tr><tr><td style=3D"word-wrap:break-word;font-s=
+ize:0px;padding:0px 25px 0px 25px;padding-top:0px;padding-bottom:0px;paddin=
+g-right:25px;padding-left:25px;" align=3D"center"><div style=3D"cursor:auto=
+;color:#000000;font-family:Arial, sans-serif;font-size:11px;line-height:nor=
+mal;text-align:center;"><p style=3D"font-size: 13px; color: #122844; margin=
+: 10px 0;"><br></p></div></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div></td></tr></tbody></table=
+><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></div>
+
+<br/><img src=3D"http://mj.ovh.com/oo/AAAAAAOut3QAARZrz1wAAFlstfUAAPiDvlwAF=
+ijIAAVMlQBbFk5pwfsBzNHMTf2PZeoYRqrYHwABHT4/796e8598/e.gif" height=3D"1" wid=
+th=3D"1" alt=3D"" border=3D"0" style=3D"height:1px;width:1px;border:0;"/>
+</body>
+</html>=
+
+--=-HvCV5j633GIaP3wE8vFV--
