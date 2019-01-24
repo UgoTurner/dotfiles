@@ -72,8 +72,16 @@ nmap E $
 nmap <leader>sv :source $MYVIMRC<CR>
 nmap <silent><leader>; :w <CR><ESC>
 nmap <leader>qs :mksession!<CR> :qa <CR>
-nmap <silent> <C-Up> 10k
-nmap <silent> <C-Down> 10j
+nmap <Up> <nop>
+nmap <Down> <nop>
+nmap <Left> <nop>
+nmap <Right> <nop>
+nmap z k
+nmap s j
+nmap q h
+nmap d l
+nmap Z 10z
+nmap S 10s
 " =============================================================================
 " " Plugin: CtrlP
 " =============================================================================
