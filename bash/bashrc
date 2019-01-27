@@ -11,3 +11,7 @@ source "$BASH_IT"/bash_it.sh
 # Export Golang path
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/Projects/go
+export CURRENT_GO_PROJECT_PATH=$HOME/Projects/go/src/github.com/ugo/podgo/
+# set fish_greeting # remove fish welcome message
+
+# fish
