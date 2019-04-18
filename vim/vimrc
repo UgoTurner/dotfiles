@@ -5,18 +5,20 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-commentary'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'lumiliet/vim-twig'
-Plugin 'ervandew/supertab'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'yssl/QFEnter'
-Plugin 'w0rp/ale'
-Plugin 'fatih/vim-go'
+Plugin 'scrooloose/nerdtree'    " Tree view
+Plugin 'tpope/vim-fugitive'     " Git support
+Plugin 'tpope/vim-commentary'   " Comment/Uncomment text
+Plugin 'ctrlpvim/ctrlp.vim'     " Fuzzy finder
+Plugin 'lumiliet/vim-twig'      " Twig support
+Plugin 'ervandew/supertab'      " Trigger actions with key 'Tab'
+Plugin 'Valloric/YouCompleteMe' " Autocompletion
+Plugin 'SirVer/ultisnips'       " Autocompletion dependency
+Plugin 'honza/vim-snippets'     " Autocompletion dependency
+Plugin 'yssl/QFEnter'           " Allows to open Vim's quickfix window
+Plugin 'w0rp/ale'               " Allows to use asynchronically code linter/fixer
+Plugin 'fatih/vim-go'           " Go support
+Plugin 'xolox/vim-notes'        " Allows to create/manage notes
+Plugin 'xolox/vim-misc'         " vim-notes dependency
 
 call vundle#end()
 filetype plugin indent on
